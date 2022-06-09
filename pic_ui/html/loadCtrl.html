@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/loadCtrl.css">
+        <title>PISC-응하중설정</title>
+    </head>
+
+    <body>
+        <div id="container">
+  
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+              
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">응하중설정</span>
+                <hr id="headerLine">
+            </header>
+  
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="car">
+                    <button class="Tc1Btn select-car" onclick="pushCar(1)">1호차</button>
+                    <button class="McBtn" onclick="pushCar(2)">2호차</button>
+                    <button class="McBtn" onclick="pushCar(3)">3호차</button>
+                    <button class="McBtn" onclick="pushCar(4)">4호차</button>
+                    <button class="McBtn" onclick="pushCar(5)">5호차</button>
+                    <button class="McBtn" onclick="pushCar(6)">6호차</button>
+                    <button class="McBtn" onclick="pushCar(7)">7호차</button>
+                    <button class="Tc0Btn" onclick="pushCar(8)">0호차</button>
+                </div>
+
+                <div id="display">
+                    <div id="congSet">
+                        <iframe id="frame" src="" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+                    </div>
+
+                    <div id="congKey">
+                        <table>
+                            <tr><td>1</td><td>2</td><td>3</td><td rowspan="2" style="background-color: rgb(0, 0, 197); color:white">설정<br>완료</td></tr>
+                            <tr><td>4</td><td>5</td><td>6</td></tr>
+                            <tr><td>7</td><td>8</td><td>9</td><td rowspan="2" style="background-color: rgb(0, 0, 197); color:white">설정<br>취소</td></tr>
+                            <tr><td>Delete</td><td>0</td><td>Clear</td></tr>
+                        </table>
+                    </div>
+                    
+                   
+                </div>
+            </section>
+              
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='menu.html'">이전</button>
+            </footer>
+  
+        </div>
+        
+    </body>
+
+    <script>
+        var CarId = document.querySelectorAll("#car button");
+        var selectedCarId = CarId[0];
+        var activeCar = 1;
+
+        window.onload = function(){
+            pushCar(1);
+        }
+
+        function pushCar(car){
+
+            // add css
+            activeCar = (car-1);
+
+            selectedCarId.classList.remove("select-car"); // select 해제
+            CarId[activeCar].classList.add("select-car"); // select
+
+            selectedCarId = CarId[activeCar];
+
+            // change iframe url
+            document.getElementById("frame").src = ("loadCtrlFrame.html?"+activeCar);
+       
+        }     
+
+    </script>
+
+</html>

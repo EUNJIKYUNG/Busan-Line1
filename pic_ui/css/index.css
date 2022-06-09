@@ -1,0 +1,94 @@
+
+
+/* -- aside ------------------------------------- */
+aside{
+    width:                          320px;
+    height:                         340px;
+    float:                          right;
+    position:                       absolute;
+    top:                            80px;
+    left:                          480px;
+}
+
+#version{ /* 버전 정보 */
+    font-size:                      20px;
+    float:                          right;
+    margin:                         0px 45px 5px 0px;
+    /* margin-right:                   45px; */
+}
+
+#statusTable{ /* 각 상태에 대한 정보 */
+    border:                         solid 2px white;
+    border-radius:                  30px;
+    border-spacing:                 0px;
+    width:                          260px;
+    height:                         280px;
+    background:                     gray;
+    margin:                         auto;
+    /* margin-top:                     40px; */
+    
+    padding:                        10px;
+}
+
+#statusTable tr td{
+    font-size:                      22px;
+    font-weight:                    bold;
+    text-align:                     center;
+    color:                          white;
+    
+}
+
+#statusTable td:nth-child(2n+1){ 
+    border-right:                    solid thin; /* 오른쪽에 테두리 */
+}
+
+/* -- section ---------------------------------------- */
+section{
+    /* border:                         solid thin; */
+    width:                          480px;
+    height:                         340px;
+
+    padding:                        25px;
+}
+
+.sectionTitle{ /* '행선', '종착역', '이번역' */
+    font:                           22px bolder;
+    font-weight:                    1000;
+}
+
+.sectionValue{ /* 행선정보, 종착역정보, 이번역정보 */
+    border:                         outset;
+    box-shadow:                     1px 1px 1px 1px rgb(212, 212, 212);
+    border-radius:                  10px;
+    width:                          420px;
+    background-color:               rgb(214, 214, 214);
+    margin:                         5px 0px 20px 0px;
+    text-align:                     center;    
+    
+}
+
+#txtLineType{ /* 행선정보 */
+    height:                         45px;
+    padding-top:                    5px;
+    font-size:                      25px;
+}
+#txtDestination{ /* 종착역정보 */
+    height:                         45px;
+    padding-top:                    5px;
+    font-size:                      25px;
+}
+
+#txtNextStation{ /* 이번역정보 */
+    background-color:               rgb(255, 217, 100);
+    height:                         75px;
+    padding-top:                    15px;
+    font-size:                      30px;
+}
+
+/* -- footer ---------------------------------------- */
+#menuBtn{
+    float:                          right;
+    margin-right:                   45px;       
+    
+    width:                          160px; 
+}

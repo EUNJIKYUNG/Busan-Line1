@@ -1,0 +1,146 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : selfDriving.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 수동운행 화면의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* -- section ---------------------------------------- */
+section{
+    /* display:                        block; */
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         340px;
+}
+
+/* -- section : area1(왼쪽) ------------- */
+#area1{
+    display:                        inline-block;
+    /* border:                         solid thin; */
+    width:                          550px;       
+    height:                         340px;          
+}
+
+
+
+#txtLine{ /* 행선(상행선/하행선) */
+    display:                        inline-block;
+    border:                         thin solid rgb(0, 0, 145);
+    background:                     rgba(0, 0, 255, 0.1);
+    border-radius:                  10px;
+    width:                          150px;
+    height:                         50px;
+    margin:                         20px 0px 20px 35px;
+    padding:                        7px;
+    font-size:                      25px;
+    font-weight:                    800;
+    text-align:                     center;
+    color:                          rgb(25, 25, 210);
+}
+
+#txtDestination{ /* 행선(상행선/하행선) */
+    display:                        inline-block;
+    border:                         thin solid navy;
+    background:                     rgba(0, 0, 255, 0.1);
+    border-radius:                  10px;
+    width:                          250px;
+    height:                         50px;
+    margin:                         15px 0px;
+    padding:                        7px;
+    font-size:                      25px;
+    font-weight:                    800;
+    text-align:                     center;
+    color:                          rgb(25, 25, 210);
+}
+
+
+#paTable{ /* 방송리스트 테이블 */
+    display:                        inline-block;
+    background-color:               white;
+    border:                         solid thin navy;
+    border-collapse:                collapse;
+    /* border-spacing:                 0px; */
+    overflow-y:                     hidden; /* 스크롤 숨기기 */
+    width:                          400px;
+    height:                         250px;
+    margin-left:                    35px;
+    margin-right:                   5px;
+    /* margin:                         5px; */
+    
+}
+
+.select{
+    background:                     rgba(72, 130, 255, 0.2);
+}
+
+
+/* #paTable tr:first-child{
+    background:                    rgba(72, 130, 255, 0.2); 
+} */
+
+#paTable tr:nth-child(2n){
+    border-top:                     dotted thin;
+    border-bottom:                  dotted thin;
+}
+
+#paTable td{
+    width:                          400px;
+    height:                         50px;
+    
+    padding:                        7px 10px;
+}
+
+.arrowBtn{ /* Up/Dwon 화살표 버튼 */
+    display:                        inline-block;
+    /* border:                         solid thin; */
+    
+    /* border-spacing:                 0px 50px 0px; */
+    height:                         245px;
+}
+
+.arrowBtn td{
+    /* border:                         solid thin; */
+    margin-bottom:                  20px;
+}
+
+.arrowBtn button{ 
+    width:                          70px;
+    height:                         70px
+}
+
+/* -- section : area2(오른쪽) ------------ */
+#area2{
+    /* border:                         solid thin; */
+    float:                          right;
+    width:                          250px;    
+    height:                         340px;             
+}
+
+#area2 button{ /* 시작, 정지 버튼 */
+    background:                     white;
+    border:                         solid thin rgb(0, 0, 145);
+    width:                          130px;
+    height:                         85px;
+    border-radius:                  10px;
+    /* margin:                         50px 0px 0px 0px; */
+    font-size:                      25px;
+    font-weight:                    1000;
+}
+
+#startBtn{
+    margin:                         100px 0px 40px 45px;
+}
+
+#stopBtn{
+    margin:                         0px 0px 0px 45px;
+}
+
+
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

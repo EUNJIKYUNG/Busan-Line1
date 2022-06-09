@@ -1,0 +1,56 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : controlType.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PISC) HTML
+    * File Description : 운행방식설정 
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/controlType.css">
+        
+        
+        <title>PISC-운행방식설정</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+
+                <span id="headerTitle">운행방식설정</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <button id="txtControl" onclick="clickControlType()">자동</button> <!-- 수동/자동 버튼 -->
+
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='menu.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="saveParam()">확인</button>
+                
+            </footer>
+
+        </div>
+
+        <script type="text/javascript" src="../js/controlType.js"></script>
+    </body>
+
+</html>

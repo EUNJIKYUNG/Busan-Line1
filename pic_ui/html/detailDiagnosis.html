@@ -1,0 +1,86 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : detailDiagnosis.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 자기진단(세부내용)
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/detailDiagnosis.css">
+        
+        <title>PISC-자기진단</title>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">자기진단</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="stat">
+                    <p class="okColor">OK</p> <!-- pisc.css 파일에 색상 정의 -->
+                    <p class="ngColor">NG</p>
+                </div>
+
+                <!-- 자기진단 세부 내용 -->
+                <div id="detailDiag">
+                    <div class="sideDevice">  
+                        <p class="leftIdd2" id="indLUidd1">RMD1</p>
+                        <p class="leftIdd2" id="indLUidd1">RMD2</p>
+                        <p class="leftIdd2" id="indLUidd1">RMD3</p>
+                         
+                        <!-- <p class="rightIdd1" id="indRUidd1">RMD3</p> -->
+                        <!-- <p class="rightIdd2" id="indRUidd2">IDD2</p> -->
+                        
+                    </div>
+
+                    <div id="centerDevice">
+                        <p id="ftndd">FTNDD</p>
+                        <img class="arrowImg" src="../image/prevCar.png" alt="왼쪽 화살표(이전 열차로 넘김)" onclick="pushArrow('prev')">
+                        <span id="carNum">1호차</span>
+                        <img class="arrowImg" src="../image/nextCar.png" alt="오른쪽 화살표(다음 열차로 넘김)" onclick="pushArrow('next')">
+                        <p id="pii">PII</p>
+                    </div>
+
+                    <div class="sideDevice">
+                        <p class="leftIdd2" id="indLDidd1">RMD4</p>
+                        <p class="leftIdd2" id="indLDidd2">RMD5</p>
+                        <p class="leftIdd2" id="indLDidd2">RMD6</p>
+
+                        <!-- <p class="rightIdd1" id="indRDidd1">IDD1</p>
+                        <p class="rightIdd2" id="indRDidd2">IDD2</p> -->
+                    </div>
+
+                    
+                </div>
+               
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='diagnosis.html'">이전</button>
+            </footer>
+
+        </div>
+
+        <script type="text/javascript" src="../js/detailDiagnosis.js"></script>
+
+    </body>
+
+</html>

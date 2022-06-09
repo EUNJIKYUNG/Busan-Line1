@@ -1,0 +1,77 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : powerSaving.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 절전기능 화면의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* -- section -------------------------------- */
+section{
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         340px;
+}
+
+#stat{ /* 절전모드, 일반모드 Div */
+    margin:                         15px 50px 15px 0px;
+    /* margin-top:                     15px;
+    margin-bottom:                  15px; */
+}
+#stat button{ /* 절전모드, 일반모드 각각 요소 */
+    /* border:                         outset; */
+    border-radius:                  10px;
+    float:                          right;
+    
+    width:                          130px;
+    height:                         50px;
+    margin:                         0px 20px 5px 0px;
+    padding:                        5px;    
+    
+    font-size:                      20px;
+    font-weight:                    600;
+    text-align:                     center;
+}
+
+.powerSaving{ /* 절전모드 버튼 */
+    background-color:               rgb(45, 85, 150);
+    color:                          white;
+    box-shadow:                     0px 1px 2px rgb(45, 85, 150);
+}
+
+.powerNormal{ /* 절전해제 버튼 */
+    background-color:               rgba(5, 95, 255, 0.1);
+    color:                          black;
+    box-shadow:                     0px 1px 1px rgba(5, 95, 255, 0.1);
+}
+
+.carNumber{
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         140px;
+    margin:                         10px 0px;
+    padding:                        0px 20px 0px 60px;
+}
+
+.carNumber button{
+    display:                        inline-block;
+    /* background-color:               rgb(0, 185, 25); 상태에 따라 변경해야함 */
+    /* border:                         solid thin; */
+    width:                          130px;
+    height:                         60px;
+    font-size:                      25px;
+    font-weight:                    500;
+    text-align:                     center;
+    margin-right:                   45px;         
+}
+
+
+
+
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

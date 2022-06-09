@@ -1,0 +1,103 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : destination.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 노선설정 화면의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* section */
+section{
+    /* display:                        block; */
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         340px;
+}
+
+#txtLine{ /* 행선(상행선/하행선) 선택하는 버튼 */
+    background:                     rgb(68, 114, 196);
+    /* border:                         none; */
+    border-radius:                  10px;
+    width:                          150px;
+    height:                         50px;
+    margin:                         10px 0px 15px 25px;
+    font-size:                      25px;
+    font-weight:                    800;
+    
+    color:                          white;
+}
+
+.inforTable{ /* 노선리스트 및 방송리스트 테이블 */
+    display:                        inline-block;
+    background-color:               white;
+    border:                         solid thin navy;
+    border-collapse:                collapse;
+    overflow-y:                     hidden; /* 스크롤 숨기기 */
+    width:                          280px;
+    height:                         250px;
+    /* font-size:                      20px; */
+    /* margin:                         5px; */
+    
+}
+
+
+.inforTable tr:nth-child(2n){ /* 노선테이블, 방송테이블의 2n번째 tr */
+    border-top:                     dotted thin; /* 테이블의 도트 표시 */
+    border-bottom:                  dotted thin;
+}
+
+.inforTable td{
+    width:                          280px;
+    height:                         50px;
+    
+    padding:                        5px 10px;
+}
+
+
+
+#lineTable{ /* 노선 테이블 */
+    margin-left:                    25px;
+}
+
+
+#paTable{ /* 방송 테이블 테이블 */
+    margin-left:                    10px;
+}
+
+.select{
+    background:                     rgba(72, 130, 255, 0.2);
+    /* height:50px; */
+    /* display: block; */
+  
+}
+
+/* .select td{
+    margin:0;
+    position: absolute;
+    animation-name:marquee;
+    animation-timing-function:linear;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes marquee {
+    from   { transform: translate(0%);}
+    to { transform: translate(100%);}
+} */
+
+
+
+
+
+/* -- footer ---------------------------------------- */
+#cancBtn{
+    margin-right:                   40px;          
+}
+
+#okBtn{
+    margin-right:                   15px;
+}
+
+

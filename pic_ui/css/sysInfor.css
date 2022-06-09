@@ -1,0 +1,47 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : sysInfor.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 시스템정보의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* section */
+section{
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         340px;
+}
+
+div .menu{
+    /* border:                         solid thin; */
+    padding:                        125px 55px 25px 28px;
+}
+
+.menu button{
+    /* display:                        inline-block; */
+    background-color:               white;
+    border:                         solid 1px navy;
+    border-radius:                  10px;
+    width:                          150px;
+    height:                         80px;
+    margin-left:                    25px;
+    font-size:                      20px;
+    font-weight:                    550;
+    /* text-align:                     center; */
+}
+
+
+
+.menu button:hover{
+    box-shadow:                     200px 0 0 0 rgb(6, 6, 122) inset;
+    color:                          white;
+}
+
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

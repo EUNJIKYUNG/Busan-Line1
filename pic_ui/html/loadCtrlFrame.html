@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body{
+                background-color: #eeeeee;
+            }
+
+            #detailDiag{ 
+                border: solid 2px gray;
+                border-radius: 30px;
+                background-color: white;
+                width: 100%;
+                height: 100%;
+            }
+
+            #pressureSet{
+                width: 100%;
+                height: 30%;
+            }
+
+            #pressureSet p{
+                float: left;
+                font-size: x-large;
+                margin: 3% 1%;
+           
+                height: 50%;
+            }
+
+            #pressureTitle{
+                width: 35%;
+                text-align: right;
+                
+            }
+
+            #pressureVal{
+                border: solid 3px navy;
+                border-radius: 5px;
+                width: 45%;
+                font-weight: bold;
+                text-align: center;
+                
+            }
+
+            #congSet{
+                width: 100%;
+                height: 50%;
+            }
+
+            #congSel{
+                padding: 0% 0% 0% 22%;
+            }
+
+            .selected{
+                border-top: 2em solid red !important;
+            }
+
+            .markBtn{
+                display: inline-block;
+                border-top: 2em solid blue;
+                border-right: 1.5em solid transparent;
+                border-left: 1.5em solid transparent;
+                margin: 2% 14% 0% 0%;
+            }
+
+            #congBar{
+                width: 100%;
+                padding-left: 5%;
+            }
+
+            #congBar p{
+                border: solid thin;
+                width: 22%;
+                height: 25%;
+                display: inline-block;
+                margin: 2% 0 0 -4px;
+                font-size: larger;
+                font-weight: bold;
+                text-align: center;
+                border-radius: 0.2em;
+            }
+
+            #congVal{
+                width: 100%;
+                padding: 0% 13%;
+            }
+
+            #congVal p{
+                display: inline-block;
+                margin: 0% 0% 0% 6%;
+                font-size: x-large;
+                width: 15%;
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div id="detailDiag">
+            <div id="pressureSet">
+                <p id="pressureTitle">만차 압력값: </p>
+                <p id="pressureVal">5000</p>
+                <p>kPa</p>
+                
+                
+            </div>
+
+            <div id="congSet">
+                <div id="congSel">
+                    <div class="markBtn selected"></div>
+                    <div class="markBtn"></div>
+                    <div class="markBtn"></div>
+        
+                </div>
+             
+                <div id="congBar">
+                    <p style="background-color: rgb(32, 128, 206);">여유</p>
+                    <p style="background-color: rgb(77, 159, 54);">보통</p>
+                    <p style="background-color: rgb(245, 173, 22);">주의</p>
+                    <p style="background-color: rgb(220, 25, 22);">혼잡</p>
+                </div>
+
+                <div id="congVal">
+                    <p id="congSetp1">80</p>
+                    <p id="congSetp2">120</p>
+                    <p id="congSetp3">150</p>
+                    <p style="font-size: medium; margin-left: 70%;">(단위: %)</p>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+
+    </body>
+
+    <script>
+     
+
+    </script>
+
+</html>
+
+

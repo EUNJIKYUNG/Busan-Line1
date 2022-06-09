@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <style>
+            section{
+                width: 800px;
+                height: 340px;
+            }
+
+            #car{ 
+                width: 100%;
+                height: 25%;
+                padding-left: 7%;
+                padding-top: 1%;
+            }
+
+            .select-car {
+                background-color: rgb(98, 104, 96) !important;
+                color: white !important;
+            }
+
+            #car button{
+                width: 11%;
+                height: 95%;
+                border: solid 2px rgb(85, 85, 85);
+                background: white;
+                font-size: 120%;
+                font-weight: bold;
+            }
+
+            .Tc1Btn{
+                border-radius: 7px;
+                border-top-left-radius: 25px;
+            }
+
+            .McBtn{
+                border-radius: 7px;
+            }
+
+            .Tc0Btn{
+                border-radius: 7px;
+                border-top-right-radius: 25px;
+            }
+
+            #display{
+                width: 100%;
+                height: 75%;
+                padding-top: 1%;
+
+            }
+
+            #cancBtn {
+                margin-right: 40px;          
+            }
+
+            #okBtn {
+                margin-right: 15px;
+            }
+
+        </style>
+
+        <title>PISC-승객하중</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+  
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+              
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">승객하중</span>
+                <hr id="headerLine">
+            </header>
+  
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="car">
+                    <button class="Tc1Btn select-car" onclick="pushCar(1)">1호차</button>
+                    <button class="McBtn" onclick="pushCar(2)">2호차</button>
+                    <button class="McBtn" onclick="pushCar(3)">3호차</button>
+                    <button class="McBtn" onclick="pushCar(4)">4호차</button>
+                    <button class="McBtn" onclick="pushCar(5)">5호차</button>
+                    <button class="McBtn" onclick="pushCar(6)">6호차</button>
+                    <button class="McBtn" onclick="pushCar(7)">7호차</button>
+                    <button class="Tc0Btn" onclick="pushCar(8)">0호차</button>
+                </div>
+
+                <div id="display">
+                    <iframe id="frame" src="" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </section>
+              
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='menu.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="location.href='#'">확인</button>
+            </footer>
+  
+        </div>
+        
+    </body>
+
+    <script>
+        var CarId = document.querySelectorAll("#car button");
+        var selectedCarId = CarId[0];
+        var activeCar = 1;
+
+        window.onload = function(){
+            pushCar(1);
+        }
+
+        function pushCar(car){
+
+            // add css
+            activeCar = (car-1);
+
+            selectedCarId.classList.remove("select-car"); // select 해제
+            CarId[activeCar].classList.add("select-car"); // select
+
+            selectedCarId = CarId[activeCar];
+
+            // change iframe url
+            document.getElementById("frame").src = ("loadCtrlFrame.html?"+activeCar);
+       
+        }     
+
+    </script>
+
+</html>

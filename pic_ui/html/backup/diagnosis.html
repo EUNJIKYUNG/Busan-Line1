@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/diagnosis.css">
+
+        <title>PISC-자기진단</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+  
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+              
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">자기진단</span>
+                <hr id="headerLine">
+            </header>
+  
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="car">
+                    <button class="Tc1Btn" onclick="checkCarNum(1)">1호차</button>
+                    <button class="McBtn" onclick="checkCarNum(2)">2호차</button>
+                    <button class="McBtn" onclick="checkCarNum(3)">3호차</button>
+                    <button class="McBtn" onclick="checkCarNum(4)">4호차</button>
+                    <button class="McBtn" onclick="checkCarNum(5)">5호차</button>
+                    <button class="McBtn" onclick="checkCarNum(6)">6호차</button>
+                    <button class="McBtn" onclick="checkCarNum(7)">7호차</button>
+                    <button class="Tc0Btn" onclick="checkCarNum(0)">0호차</button>
+                </div>
+
+                <div id="display">
+                    <div id="detailDiag"">
+                        <div class="sideDevice sideTop">  
+                            <p class="device leftIdd1" id="indLUidd1">IDD1</p>
+                            <p class="device leftIdd2" id="indLUidd2">IDD2</p>
+                             
+                            <p class="device rightIdd1" id="indRUidd1">IDD1</p>
+                            <p class="device rightIdd2" id="indRUidd2">IDD2</p>
+                        </div>
+    
+                        <div id="centerDevice">
+                            <p class="device" id="ftndd">FTNDD</p>
+                            <p id="carNum">1호차</p>
+                            <p class="device"id="pii">PII</p>
+                        </div>
+    
+                        <div class="sideDevice sideBot">
+                            <p class="device leftIdd1" id="indLDidd1">IDD1</p>
+                            <p class="device leftIdd2" id="indLDidd2">IDD2</p>
+    
+                            <p class="device rightIdd1" id="indRDidd1">IDD1</p>
+                            <p class="device rightIdd2" id="indRDidd2">IDD2</p>
+                        </div>
+    
+                    </div>
+                
+                    <div id="okng">
+                        <p class="okColor">OK</p>
+                        <p class="ngColor">NG</p>
+
+                    </div>
+                    
+                </div>
+                              
+            </section>
+              
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='menu.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="location.href='#'">확인</button>
+            </footer>
+  
+        </div>
+        
+    </body>
+
+    <script>
+        const STATUS_OK = 0; // 상태 OK
+        const STATUS_NG = 1; // 상태 NG
+        const CAR_COUNT = 8; // car 개수 (0~8호차)
+        const DEVICE_COUNT = 10; // device 개수(FTNDD:1,PII1,IDD8)
+
+
+        var mCarNum; // 몇호차인지
+        var mCarStat = [1,0,1,0,1,0,0,1];
+        var mDeviceStat = [1,0,0,0,0,0,0,0,0,1]; 
+
+        var CarId = document.querySelectorAll("#car button");
+        var selectedCarId = CarId[0];
+        var activeCar;
+
+        window.onload = function(){
+            checkCarNum(1); 
+            displayStatus();
+        }
+
+        function checkCarNum(mCarNum)
+        {
+            // edit text
+            document.querySelector("#carNum").innerText = (mCarNum+"호차"); 
+            if(mCarNum == 0){ // 0호차
+                document.getElementById("ftndd").innerHTML = "PII2";
+                document.getElementById("pii").innerHTML = 'FTNDD'; 
+                activeCar = 7;
+            }
+            else if(mCarNum == 1){ // 1호차
+                document.getElementById("ftndd").innerHTML = "FTNDD";
+                document.getElementById("pii").innerHTML = 'PII2'; 
+                activeCar = 0;
+            } 
+            else{ // 2~7호차
+                document.getElementById("ftndd").innerHTML = "PII1";
+                document.getElementById("pii").innerHTML = 'PII2'; 
+                activeCar = (mCarNum-1);
+            }
+
+            // add class
+            selectedCarId.classList.remove("select-car"); // select 해제
+            CarId[activeCar].classList.add("select-car"); // select
+            selectedCarId = CarId[activeCar];
+        }
+
+        function displayStatus()
+        {
+            var car = document.querySelectorAll("#car button");
+            var device = document.querySelectorAll(".device");
+
+            for(var i=0; i<CAR_COUNT; i++){ // car status
+                if(mCarStat[i] == STATUS_OK){
+                    car[i].classList.add("okColor");
+                }
+                else{
+                    car[i].classList.add("ngColor");
+                }
+            }
+
+            for(var i=0; i<DEVICE_COUNT; i++){ // device status
+                if(mDeviceStat[i] == STATUS_OK){
+                    device[i].classList.add("okColor");
+                }
+                else{
+                    device[i].classList.add("ngColor");
+                }
+            }
+        }
+
+    </script>
+
+</html>

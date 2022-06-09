@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link type="text/css" rel="stylesheet" href="css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="css/index.css">
+        
+        <title>PISC-MAIN</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+            
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+
+                <span id="headerTitle">
+                    <span>열차번호 : </span>
+                    <span id="txtTrainNum">8001</span>
+                </span>
+                <hr id="headerLine">
+            </header>
+            
+            <!-- aside ---------------------------------------------------------------- -->
+            <aside>
+                <p id="version">Ver 1.0.0</p> <!-- 펌웨어 버전 표시 -->
+
+                <table id="statusTable">
+                    <tr>
+                        <!-- 운행상태 -->
+                        <td>운행상태</td>
+                        <td id="txtDriveMode">자동</td>
+                    </tr>
+                    <tr>
+                        <!-- 문상태 -->
+                        <td>문상태</td>
+                        <td id="txtDoorState">열림</td>
+                    </tr>
+                    <tr>
+                        <!-- TCMS -->
+                        <td>TCMS</td>
+                        <td id="txtTcmsState">OK</td>
+                    </tr>
+                    <tr>
+                        <!-- 역간거리 -->
+                        <td>역간거리</td>
+                        <td id="txtSpacingDist">0[m]</td>
+                    </tr>
+                    <tr>
+                        <!-- 운행거리 -->
+                        <td>운행거리</td>
+                        <td id="txtDriveDist">0[m]</td>
+                    </tr>
+                    <tr>
+                        <!-- 동작상태 -->
+                        <td>동작상태</td>
+                        <td id="txtDriveMode">M</td>
+                    </tr>
+                </table>
+
+            </aside>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <p class="sectionTitle">행선</p>
+                <p class="sectionValue" id="txtLineType">하행선</p>
+
+                <p class="sectionTitle">종착역</p>
+                <p class="sectionValue" id="txtDestination">노포</p>
+
+                <p class="sectionTitle">이번역</p>
+                <p class="sectionValue" id="txtNextStation">부산역</p>
+
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <!-- <img src="image/Menu.png" id="menuBtn"> -->
+                <button class="roundFootBtn" id="menuBtn" onclick="location.href='html/menu.html'">메뉴</button>
+            </footer>
+
+
+            
+        </div>
+
+        <script>
+            
+        </script>
+
+
+    </body>
+
+</html>

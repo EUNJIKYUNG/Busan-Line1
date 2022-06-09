@@ -1,0 +1,54 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : diagnosis.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 자기진단 화면의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* -- section -------------------------------- */
+section{
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         340px;
+}
+
+#stat{ /* OK, NG Div */
+    margin-top:                     15px;
+    margin-bottom:                  15px;
+}
+#stat p{ /* OK, NG 각각 요소 */
+    border:                         solid thin black;
+    margin:                         0px 20px 5px 670px;
+    width:                          60px;
+    text-align:                     center;
+    color:                          white;
+}
+
+.carNumber{ /* 0호차~7호차 영역 */
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         140px;
+    margin:                         10px 0px;
+    padding:                        0px 20px 0px 60px;
+}
+
+.carNumber button{ /* 0호차~7호차 버튼 */
+    display:                        inline-block;
+    /* background-color:               rgb(0, 185, 25); 상태에 따라 변경해야함 */
+    /* border:                         solid thin; */
+    width:                          130px;
+    height:                         60px;
+    color:                          white;
+    font-size:                      25px;
+    font-weight:                    500;
+    text-align:                     center;
+    margin-right:                   45px;         
+}
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

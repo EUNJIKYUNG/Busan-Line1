@@ -1,0 +1,57 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : sysInfor.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 시스템정보
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/sysInfor.css">
+        
+        <title>PISC-시스템정보</title>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                
+                <span id="headerTitle">시스템정보</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div class="menu">
+                    <button onclick="location.href='brightCtrl.html'">화면밝기</button>
+                    <button onclick="location.href='formNumber.html'">편성번호설정</button>
+                    <button onclick="location.href='updateInfor.html'">업데이트정보</button> 
+                    <button onclick="location.href=''">.</button>
+                    
+                </div>
+                
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='menu.html'">이전</button>
+            </footer>
+
+        </div>
+
+    </body>
+
+</html>

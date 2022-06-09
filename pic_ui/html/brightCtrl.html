@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/brightCtrl.css">
+          
+        <title>PISC-밝기조절</title>
+        
+    </head>
+  
+    <body>
+        <div id="container">
+    
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">밝기조절</span>
+                <hr id="headerLine">
+            </header>
+    
+            <section>
+
+                <div id="textDiv">
+                    <p id="valText">1</p>
+                </div>
+
+                <div id="ctrlDiv">
+                
+                    <div id="btnDiv">
+                        <button onclick="ctrlBright('down')">-</button>
+                    </div>
+    
+                    <div id="rangeDiv">
+                        <div id="range">
+                            <input id="valRange" type="range" min="1" max="10" steps="1" onchange="changeVal()">
+                        </div>
+                          
+                        <ul id="range-labels">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+                            <li>10</li>
+                        </ul>
+                    </div>
+
+                    <div id="btnDiv">
+                        <button onclick="ctrlBright('up')">+</button>
+                    </div>
+    
+                </div>
+<!-- 
+                <input id="textEdit" type="text">
+                <button onclick="chgVal()">확인</button> -->
+
+
+            </section>
+                
+                
+            <footer>
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='menu.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="location.href='#'">확인</button>
+            </footer>
+    
+        </div>
+        
+    </body>
+
+    <script>
+        
+        let bar = document.getElementById('valRange');
+        let text = document.getElementById('valText');
+        
+
+        bar.value = 3; // default value
+        changeVal(); // display value
+
+    
+        function ctrlBright(btn){
+            if(btn == 'up'){
+                if (bar.value < 10){
+                    bar.value ++;
+                }
+            }
+            else{
+                if (bar.value > 1){
+                    bar.value --;
+                }
+            }
+            
+            changeVal();
+            
+        }    
+
+        function changeVal(){
+            text.innerHTML = bar.value;
+        }
+
+        function chgVal(){
+            text.innerHTML= bar.value = textEdit.value;
+
+        }
+    
+    </script>
+  
+</html> 

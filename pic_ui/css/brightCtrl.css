@@ -1,0 +1,134 @@
+#textDiv {
+	display: absolute;
+	width: 800px;
+	height: 200px;
+	border: solid thin #eeeeee;
+	margin: 0;
+}
+
+#textDiv p {
+	position: relative;
+	width: 20%; 
+	height: 80%; 
+	background: navy;
+	text-align: center;
+	color: white;
+	font-size: 100px;
+	margin-left: 40%;
+	margin-top: 5%;
+	border-radius: 10%;
+}
+
+#ctrlDiv {
+	display: absolute;
+	width: 800px;
+	height: 100px;
+}
+
+#btnDiv {
+	display: relative;
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+
+#btnDiv button{
+	border: solid thin rgb(75, 75, 75);
+	background: rgb(204, 204, 204);
+	width: 60%;
+	height: 60%;
+
+	margin: 10% 20%;
+	font-size: 40px;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+}
+
+#btnDiv button:active {
+	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.42);
+	color: rgb(75, 75, 75);;
+}
+
+#rangeDiv {
+	display: relative;
+	float: left;
+	width: 60%; 
+	height: 100%;
+	padding-top: 6%;
+}
+
+  
+#range {
+	position: relative;
+	width: 90%;
+	height: 5px;
+	margin-left: 5%;
+}
+  
+#range input {
+	width: 100%;
+	position: absolute;
+	top: 2px;
+	height: 0;
+	-webkit-appearance: none;
+	z-index: 1;
+}
+
+#range input::-webkit-slider-thumb {
+	-webkit-appearance: none; 
+	width: 18px;
+	height: 18px;
+	margin: -8px 0  0;
+	border-radius: 50%;
+	background: black;
+}
+  
+#range input::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 3px;
+	background: #b2b2b2;
+}
+  
+  
+#range-labels {
+	margin: 18px 0px 0px 5px;
+	padding: 0;
+	list-style: none;
+}
+
+#range-labels li {
+	position: relative;
+	float: left;  
+	width: 47px;
+	/* width: 104px; */
+	text-align: center;
+	color: #b2b2b2;
+	font-size: 14px;
+	cursor: pointer;
+	
+}
+
+#range-labels li::before {
+	position: absolute;
+	top: -25px;
+	right: 0;
+	left: 0;
+	content: "";
+	margin: 0 auto;
+	width: 9px;
+	height: 9px;
+	background: #b2b2b2;
+	border-radius: 50%;	
+	
+}
+
+
+#cancBtn {
+	margin-right: 40px;          
+}
+
+#okBtn {
+	margin-right: 15px;
+}
+

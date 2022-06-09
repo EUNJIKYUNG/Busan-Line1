@@ -1,0 +1,71 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : diagnosis.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PISC) HTML
+    * File Description : 자기진단 
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/diagnosis_old.css">
+        
+        <title>PISC-자기진단</title>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">자기진단</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="stat">
+                    <p class="okColor">OK</p> <!-- pisc.css 파일에 색상 정의 -->
+                    <p class="ngColor">NG</p>
+                </div>
+                <!-- 1~4호차 -->
+                <div class="carNumber">
+                    <button id="indDiagCar1" onclick="location.href='detailDiagnosis.html?car=1'">1호차</button>
+                    <button id="indDiagCar2" onclick="location.href='detailDiagnosis.html?car=2'">2호차</button>
+                    <button id="indDiagCar3" onclick="location.href='detailDiagnosis.html?car=3'">3호차</button>
+                    <button id="indDiagCar4" onclick="location.href='detailDiagnosis.html?car=4'">4호차</button>
+
+                </div>
+
+                <!-- 5~0호차 -->
+                <div class="carNumber">
+                    <button id="indDiagCar5" onclick="location.href='detailDiagnosis.html?car=5'">5호차</button>
+                    <button id="indDiagCar6" onclick="location.href='detailDiagnosis.html?car=6'">6호차</button>
+                    <button id="indDiagCar7" onclick="location.href='detailDiagnosis.html?car=7'">7호차</button>
+                    <button id="indDiagCar0" onclick="location.href='detailDiagnosis.html?car=0'">8호차</button>
+                </div>
+               
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='menu.html'">이전</button>
+            </footer>
+
+        </div>
+
+    </body>
+
+    <script type="text/javascript" src="../js/diagnosis past.js"></script>
+  
+
+</html>

@@ -1,0 +1,129 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : menu.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 업데이트 화면
+    * Date : 2021.07.02 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/update.css">
+        
+        <title>PISC-UPDATE</title>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">업데이트</span>
+                
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+
+                <div id="update_wrapper">
+                    <div id="filedate">
+                        <p>최근 업데이트 파일 : </p>
+                        <p id="filedate_cur">20220707T122030</p>
+                        <p>USB 업데이트 파일 : </p> 
+                        <p id="filedate_usb">20220709T122023</p>
+                    </div>
+                    
+                    <button class="updatebtn" style="background-color: rgb(35, 158, 4);" onclick="clickBtnUpdate()">업데이트<br>시작</button>
+                    <button class="updatebtn" style="background-color: rgb(235, 154, 33);">USB<br>로그 출력</button>
+                </div>
+                
+                <div id="progress_wrapper">
+                    
+                    <ul id="progress_cir">
+                        <li id="step1">시작</li>
+                        <li id="step2">USB<br>파일 확인</li>
+                        <li id="step3">파일 체크섬</li>
+                        <li id="step4">파일 복사</li>
+                        <li id="step5">장치<br>업데이트</li>
+                        <li id="step6">완료</li>
+                    </ul>
+
+                    <div id="progress_bar"><div id="progress_bar_cur"></div></div>
+                    
+                </div>
+                
+            </section>
+
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='menu.html'">이전</button>
+            </footer>
+
+        </div>
+
+        <script>
+            var update_status = 0;
+            var update_step = 0;
+
+
+            function clickBtnUpdate(){
+                var bar = document.getElementById("progress_bar_cur");
+
+                if(update_status == 1)  return;
+
+                update_status ^= 1;
+                update_step = 0;
+                bar.style.width = update_step + "%";
+
+                document.getElementById("step6").classList.remove("active");
+                document.getElementById("step5").classList.remove("active");
+                document.getElementById("step4").classList.remove("active");
+                document.getElementById("step3").classList.remove("active");
+                document.getElementById("step2").classList.remove("active");
+                document.getElementById("step1").classList.remove("active");
+
+                var timer = setInterval(function(){
+
+                    // console.log("step: " + update_step);
+                    bar.style.width = update_step + "%";
+
+                    if(update_step >= 100)
+                        document.getElementById("step6").classList.add("active");
+                    else if(update_step >= 80)
+                        document.getElementById('step5').classList.add("active");
+                    else if(update_step >= 60)
+                        document.getElementById('step4').classList.add("active");
+                    else if(update_step >= 40)
+                        document.getElementById('step3').classList.add("active");
+                    else if(update_step >= 20)
+                        document.getElementById('step2').classList.add("active");
+                    else
+                        document.getElementById('step1').classList.add("active");
+
+                    if(update_step < 100){
+                         update_step += 2;
+                    }
+                    else{
+                        clearInterval(timer);
+                        update_status = 0;
+                    }
+                    
+                }, 1000);    // 1sec
+            }
+
+            
+        </script>
+
+    </body>
+
+</html>

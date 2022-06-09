@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <style>
+            section{
+                width: 800px;
+                height: 340px;
+            }
+
+            #car{ 
+                width: 100%;
+                height: 25%;
+                padding-left: 7%;
+                padding-top: 2%;
+            }
+
+            #car button{
+                width: 11%;
+                height: 80%;
+                color: white;
+                font-size: 120%;
+                font-weight: bold;
+            }
+
+            .Tc1Btn{
+                border-radius: 5px;
+                border-top-left-radius: 25px;
+            }
+
+            .McBtn{
+                border-radius: 5px;
+            }
+
+            .Tc0Btn{
+                border-radius: 5px;
+                border-top-right-radius: 25px;
+
+            }
+
+            #display{
+                width: 100%;
+                height: 70%;
+            }
+
+            #okng{
+                width: 50%;
+                height: 5%;
+                padding: 1% 7%;
+            }
+
+            #okng p{
+                display: inline;
+                border: solid thin black;
+                left: 7%;
+                margin-left: 1%;
+                padding: 0% 2.5%;
+                color: white;
+            }
+
+            .select-car{
+                border: solid 4px rgba(253, 251, 251, 0.438) !important;
+            }
+
+            #cancBtn {
+                margin-right: 40px;          
+            }
+
+            #okBtn {
+                margin-right: 15px;
+            }
+        </style>
+
+        <title>PISC-자기진단</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+  
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+              
+                <span id="nowTime">
+                    <p id="txtDate">2022. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">자기진단</span>
+                <hr id="headerLine">
+            </header>
+  
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="car">
+                    <button class="Tc1Btn" onclick="pushCar(1)">1호차</button>
+                    <button class="McBtn" onclick="pushCar(2)">2호차</button>
+                    <button class="McBtn" onclick="pushCar(3)">3호차</button>
+                    <button class="McBtn" onclick="pushCar(4)">4호차</button>
+                    <button class="McBtn" onclick="pushCar(5)">5호차</button>
+                    <button class="McBtn" onclick="pushCar(6)">6호차</button>
+                    <button class="McBtn" onclick="pushCar(7)">7호차</button>
+                    <button class="Tc0Btn" onclick="pushCar(8)">0호차</button>
+                </div>
+
+                <div id="display">
+                    <iframe id="frame" src="" width="100%" height="100%" frameborder=0 scrolling="no"></iframe>
+                </div>
+                
+                <div id="okng">
+                    <p class="okColor">OK</p>
+                    <p class="ngColor">NG</p>
+                </div>
+                              
+            </section>
+              
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='menu.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="location.href='#'">확인</button>
+            </footer>
+  
+        </div>
+        
+    </body>
+
+    <script>
+        const cSTATUS_OK = 0; // 상태 OK
+        const cSTATUS_NG = 1; // 상태 NG
+        const CAR_COUNT = 8; // car 개수 (0~8호차)
+
+        var mCarStat = [1,0,1,0,1,0,0,1]
+        var CarId = document.querySelectorAll("#car button");
+        var selectedCarId = CarId[0];
+        var activeCar;
+
+        window.onload = function(){
+            pushCar(1); 
+            displayStatus();
+        }
+
+        function pushCar(car)
+        {
+            // add css
+            activeCar = (car-1);
+           
+            selectedCarId.classList.remove("select-car"); // select 해제
+            CarId[activeCar].classList.add("select-car"); // select
+            selectedCarId = CarId[activeCar];
+
+            // change iframe src
+            document.getElementById("frame").src = ("diagnosisFrame.html?"+activeCar);
+            
+        }
+
+        function displayStatus() // car 색상 변경
+        {
+            var car = document.querySelectorAll("#car button");
+            
+            for(var i=0; i<CAR_COUNT; i++){
+                if(mCarStat[i] == cSTATUS_OK){
+                    car[i].classList.add("okColor");
+                }
+                else{
+                    car[i].classList.add("ngColor");
+                }
+            }
+
+        }
+
+    </script>
+
+</html>

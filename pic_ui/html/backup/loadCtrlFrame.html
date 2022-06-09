@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body{
+                background-color: #eeeeee;
+            }
+
+            #detailDiag{ 
+                border: solid 2px gray;
+                border-radius: 30px;
+                background-color: white;
+                width: 90%;
+                height: 90%;
+                margin: 0% 5%;
+            }
+
+            #div1{
+                width: 20%;
+                height: 100%;
+                float: left;
+            }
+
+            #div1 p{
+                font-size: 150%;
+                font-weight: bold;
+                margin-top: 13%;
+                margin-bottom: 12%;
+                text-align: right;
+            }
+
+            #div2{
+                width: 60%;
+                height: 100%;
+                float: left;
+            }
+
+            #div2 button{ /* value btn */
+                display: block;
+                width: 80%;
+                height: 20%;
+                margin: 2% 5%;
+                background-color: white;
+                border-radius: 8px;
+                border-color: rgb(68, 114, 196);
+                font-size: 200%;
+                font-weight: bold;
+                outline: 0;
+            }
+
+            .select-list{
+                background-color: rgb(106, 163, 219) !important;
+                color: white !important;
+            }
+
+            #div3{
+                width: 20%;
+                height: 100%;
+                float: left;
+            }
+
+            #div3 button{ /* up/down btn */
+                border: solid thin;
+                width: 80%;
+                height: 35%;
+                margin: 15% 0% 4% 0%;
+                border-radius: 10px;
+                border-color: rgb(175, 175, 175);
+                text-align: center;
+                font-weight: bold;
+                font-size: 200%;
+                outline: 0;
+            }
+
+            #div3 button:active{
+                box-shadow: 2px 1px 1px 1px rgb(240, 240, 240) ;
+            }
+
+            .no-js{
+                visibility: hidden;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="detailDiag">
+            <div id="div1">
+                <p>74% :</p>
+                <p>85% :</p>
+                <p>124% :</p>
+                <p>135% :</p>
+            </div>
+            
+            <div id="div2">
+                <button class="select-list" onclick="pushList(0)">0</button>
+                <button onclick="pushList(1)">0</button>
+                <button onclick="pushList(2)">0</button>
+                <button onclick="pushList(3)">0</button>
+                
+            </div>
+        
+            <div id="div3">
+                <button onclick="pushUpdnBtn('+')">+</button>
+                <button onclick="pushUpdnBtn('-')">-</button>
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+        var ListId = document.querySelectorAll("#div2 button");
+        var selectedListId = ListId[0];
+        var activeList = 0;
+
+        window.onload = function(){
+            checkCarNum();
+            pushList(0);
+            
+        }
+
+        function checkCarNum()
+        {
+            var urlText = location.href.split('?');
+            var carNum = parseInt(urlText[1]);
+            console.log(carNum);
+        }
+
+        function pushList(list){
+            activeList = list;
+
+            selectedListId.classList.remove("select-list"); // select 해제
+            ListId[activeList].classList.add("select-list"); // select
+            selectedListId = ListId[activeList];
+        }
+
+        function pushUpdnBtn(btn){
+            if(btn === '+'){
+            }
+            else{
+            }
+
+        }
+
+    </script>
+
+</html>
+
+

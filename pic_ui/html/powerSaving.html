@@ -1,0 +1,78 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : powerSaving.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 절전기능
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/powerSaving.css">
+        
+        <title>PISC-절전기능</title>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">절전기능</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="stat">
+                    <button class="powerNormal" onclick= "changeMode(0x00)">절전해제</button>
+                    <button class="powerSaving" onclick= "changeMode(0xFF)">전체절전</button> 
+                    
+                </div>  
+                <br>
+                <br>
+                <br>
+                <!-- 1~4호차 -->
+                <div class="carNumber">
+                    <button id="indSaveCar1" onclick= "changeMode(1)">1호차</button>
+                    <button id="indSaveCar2" onclick= "changeMode(2)">2호차</button>
+                    <button id="indSaveCar3" onclick= "changeMode(3)">3호차</button>
+                    <button id="indSaveCar4" onclick= "changeMode(4)">4호차</button>
+
+                </div>
+
+                <!-- 5~0호차 -->
+                <div class="carNumber">
+                    <button id="indSaveCar5" onclick= "changeMode(5)">5호차</button>
+                    <button id="indSaveCar6" onclick= "changeMode(6)">6호차</button>
+                    <button id="indSaveCar7" onclick= "changeMode(7)">7호차</button>
+                    <button id="indSaveCar0" onclick= "changeMode(8)">0호차</button>
+                </div>
+               
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='menu.html'">이전</button>
+            </footer>
+
+        </div>
+
+        <script type="text/javascript" src="../js/powerSaving.js"></script>
+
+    </body>
+
+    <script>
+
+    </script>
+
+</html>

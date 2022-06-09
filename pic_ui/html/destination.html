@@ -1,0 +1,91 @@
+﻿ <!-- ----------------------------------------------------------------------
+    *
+    * File : destination.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 노선설정
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css"> <!-- 공통 CSS -->
+        <link type="text/css" rel="stylesheet" href="../css/destination.css"> <!-- 개별 CSS -->
+          
+        <title>PISC-노선설정</title>
+  
+    </head>
+  
+    <body>
+        <div id="container">
+  
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+              
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">노선설정</span>
+                <hr id="headerLine">
+            </header>
+  
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <button id="txtLine" onclick="clickLineType()"">상행선</button> <!-- 상행선/하행선 선택 -->
+                <br>
+                  
+                <!-- 노선 선택 : 테이블 -->
+                <table class="inforTable" id="lineTable"></table>
+                
+  
+                <!-- 노선 선택 : 스크롤 버튼 -->
+                <!-- <table class="arrowBtn">
+                    <tr><td><img src="../image/UpScroll.png" alt="UP버튼" onclick="clickLineUpDn('up')" style="width:80px"></td></tr>
+                    <tr><td style="height: 60px;"></td></tr> 
+                    <tr><td><img src="../image/DownScroll.png" alt="Down버튼" onclick="clickLineUpDn('down')" style="width:80px"></td></tr>
+                </table> -->
+
+                <table class="updnBtn">
+                    <tr><td><button class="upBtn" onclick="clickLineUpDn('up')"></button></td></tr>
+                    <tr><td style="height: 60px;"></td></tr> 
+                    <tr><td><button class="downBtn" onclick="clickLineUpDn('down')"></button></td></tr>
+                </table>
+
+
+                <!-- 방송 목록 : 테이블 -->
+                <table class="inforTable" id="paTable"></table>
+                
+  
+                <!-- 방송 목록 : 스크롤 버튼 -->
+                <!-- <table class="arrowBtn">
+                    <tr><td><img src="../image/UpScroll.png" alt="UP버튼" onclick="clickPaUpDn('up')" style="width:80px"></td></tr>
+                    <tr><td style="height: 60px;"></td></tr> 
+                    <tr><td><img src="../image/DownScroll.png" alt="UP버튼" onclick="clickPaUpDn('down')" style="width:80px"></td></tr>
+                </table> -->
+                <table class="updnBtn">
+                    <tr><td><button class="upBtn" onclick="clickPaUpDn('up')"></button></td></tr>
+                    <tr><td style="height: 60px;"></td></tr> 
+                    <tr><td><button class="downBtn" onclick="clickPaUpDn('down')"></button></td></tr>
+                </table>
+  
+            </section>
+              
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='menu.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="location.href='#'">확인</button>
+            </footer>
+  
+        </div>
+  
+        <script type="text/javascript" src="../js/listTable.js"></script>
+        <script type="text/javascript" src="../js/destination.js"></script>
+        
+    </body>
+  
+</html>

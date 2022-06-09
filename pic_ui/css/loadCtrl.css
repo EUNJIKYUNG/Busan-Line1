@@ -1,0 +1,90 @@
+section{
+    width: 800px;
+    height: 340px;
+}
+
+#car{ 
+    width: 100%;
+    height: 25%;
+    padding-left: 7%;
+    padding-top: 1%;
+}
+
+.select-car {
+    background-color: rgb(18, 8, 109) !important;
+    color: white !important;
+}
+
+#car button{
+    width: 11%;
+    height: 95%;
+    border: solid 2px rgb(85, 85, 85);
+    background: white;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.Tc1Btn{
+    border-radius: 7px;
+    border-top-left-radius: 25px;
+}
+
+.McBtn{
+    border-radius: 7px;
+}
+
+.Tc0Btn{
+    border-radius: 7px;
+    border-top-right-radius: 25px;
+}
+
+#display{
+    width: 100%;
+    height: 70%;
+    padding-top: 1%;
+
+}
+
+#congSet{
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+
+#congKey{
+    float: left;
+    width: 40%;
+    height: 100%;
+    padding: 1%
+}
+
+#congKey table{
+    width: 100%;
+    height: 100%;
+    border: solid 2px gray;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2%;
+}
+
+
+#congKey table{
+    border: solid thin;
+    border-spacing: 2px;
+ 
+}
+
+#congKey td{
+    border: solid 2px gray;
+    width: 20%;
+    text-align: center;
+    font-size: larger;
+    background-color: rgb(236, 236, 236);
+
+
+}
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

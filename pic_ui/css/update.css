@@ -1,0 +1,194 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : update.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 업데이트 화면 스타일시트
+ * Date : 2021.07.02
+ *
+ * --------------------------------------------------------------------- */
+
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "Nanum Gothic";
+}
+
+body{
+    margin: auto; /*젤로*/
+}
+
+#container{
+    background-color: #eeeeee;
+    width: 800px;
+    height: 480px;    
+}
+
+:focus{
+    outline: none;
+}
+
+header{
+    width: 800px;
+    height: 80px;
+    position: absolute;
+    top: 0px;
+    padding: 10px 10px 0px 10px;
+}
+
+#logo{ 
+    width: 180px;
+    height: 50px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+#headerTitle{ 
+    width: 400px;
+    height: 50px;
+    float: left;
+    padding-top: 5px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+#headerLine{ 
+    width: 780px;
+    height: 10px;
+    background: rgb(47, 85, 150);
+    border: 0px;    
+}
+
+section{
+    position: absolute;
+    top: 80px;
+    width: 800px;
+    height: 400px;
+}
+
+#update_wrapper{
+    /* border: solid thin; */
+    width: 100%;
+    height: 30%;
+}
+
+#filedate{
+    border: solid 1px navy;
+    border-radius: 8px;
+    background-color: white;
+    width: 55%;
+    height: 60%;
+    margin: 3% 0% 0% 2%;
+    padding: 1% 2%;
+    float: left;
+    font-size: 20px;
+}
+
+#filedate p{
+    display: inline-block;
+    padding-left: 1px;
+}
+
+.updatebtn{
+    width: 18%;
+    height: 60%;
+    float: left;
+    margin: 3% 0% 0% 2%;
+    font-size: 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+#progress_wrapper{
+    position: relative;
+    /* border: solid thin; */
+    width: 100%;
+    height: 50%;
+    padding: 8% 0%;
+}
+
+#progress_bar{
+    position: absolute;
+    background-color: white;
+    width: 78%;
+    height: 5%;
+    z-index: 1;
+    top: 42%;
+    left: 10%;
+}
+
+#progress_bar_cur{
+    position: absolute;
+    background-color: green;
+    width: 0%;
+    height: 100%;
+    z-index: 2;
+}
+
+#progress_cir {
+    /* border: solid thin; */
+    position: absolute;
+    width: 100%;
+    height: 60% ;
+    z-index: 3;
+    padding-left: 2%;
+}
+
+#progress_cir li{
+    
+    list-style-type: none;
+    width: 16%;
+    float: left;
+    font-size: 17px;
+    font-weight: bolder;
+    text-align: center;
+    color: #7d7d7d;
+    /* border: solid thin; */
+}
+
+
+#progress_cir li:before {
+    display: block;
+    border: 3px solid #7d7d7d;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    content: 'X';
+    line-height: 40px;
+    
+    margin: 0 auto 10px auto;
+    
+    background-color: #7d7d7d;
+    color: white;
+}
+
+#progress_cir li.active {
+    
+    color: green;
+}
+ 
+#progress_cir li.active:before {
+    content: '\2714'; /* 'V' */
+    border-color: green;
+    background-color: green;
+}
+
+#logbtn{
+    float: right;
+    width: 30%;
+    height: 15%;
+    margin: 0% 5%;
+    font-size: 15px;
+    border-color: navy;
+    background-color: white;
+}
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

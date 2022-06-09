@@ -1,0 +1,84 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : selfDriving.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 수동운행
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css"> <!-- 공통 CSS -->
+        <link type="text/css" rel="stylesheet" href="../css/selfDriving.css"> <!-- 개별 CSS -->
+        
+        <title>PISC-수동운행</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+            
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">수동운행</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+                <div id="area1">
+                    <p id="txtLine">상행선</p> <!-- 상행선/하행선 -->
+                    <span id="txtDestination">강동→마천</span>
+                    <br>
+            
+                    <!-- 표시기 화면 목록 : 테이블 -->
+                    <table class="inforTable" id="paTable">
+                        <!-- DB에서 테이블 가져와서 출력함.. -->
+                    </table>
+
+                    <!-- 표시기 화면 목록 : 테이블 -->
+                    <!-- <table class="arrowBtn">
+                        <tr><td><img src="../image/UpScroll.png" alt="UP버튼" onclick="clickPaUpDn('up')" style="width:80px"></td></tr>
+                        <tr><td style="height: 60px;"></td></tr> 
+                        <tr><td><img src="../image/DownScroll.png" alt="UP버튼" onclick="clickPaUpDn('down')" style="width:80px"></td></tr>
+                    </table> -->
+
+                    <table class="updnBtn">
+                        <tr><td><button class="upBtn" onclick="clickPaUpDn('up')"></button></td></tr>
+                        <tr><td style="height: 60px;"></td></tr> 
+                        <tr><td><button class="downBtn" onclick="clickPaUpDn('down')"></button></td></tr>
+                    </table>
+
+                </div>
+
+                <div id="area2">
+                    <button id="startBtn">시작</button>
+                    <br>
+                    <button id="stopBtn">정지</button>
+                </div>
+
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='menu.html'">이전</button>
+            </footer>
+
+        </div>
+
+        <script type="text/javascript" src="../js/listTable.js"></script>
+        <script type="text/javascript" src="../js/selfDriving.js"></script>
+
+    </body>
+
+</html>

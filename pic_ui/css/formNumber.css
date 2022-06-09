@@ -1,0 +1,66 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : formNumber.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 편성번호설정 화면의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* -- section -------------------------------- */
+section{
+    /* position:                       absolute; */
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         340px;
+}
+
+#border{ /* section 안에 하얀색 테두리 */
+    border:                         solid 5px white;
+    border-radius:                  20px;
+    margin:                         22px 40px 0px 40px;
+    width:                          700px;
+    height:                         300px;
+}
+
+.area{ /* 하얀 테두리 안에 '열차번호표시영역'과 '키패드영역'으로 영역을 나눈다 */
+    float:                          left;
+    width:                          340px;
+    height:                         280px;
+                       
+}
+
+#txtFormNum{ /* 편성번호 */
+    background-color:             white;
+    border:                         solid thin navy;
+    width:                          250px;
+    height:                         80px;
+    margin:                         30px 35px;
+    font-size:                      60px;
+    text-align:                     center;
+}
+
+.area table{ /* 키패드 */
+    border-spacing:                 8px;
+    margin:                         20px 10px;
+}
+.area table td{ /* 키패드의 숫자키들 */
+    border:                         solid thin navy;
+    background:                     rgb(163, 162, 162);
+    width:                          150px;
+    height:                         50px;
+    text-align:                     center;
+    color:                          white;
+    font-size:                      20px;
+    font-weight:                    500;
+}
+
+/* -- footer ---------------------------------------- */
+#cancBtn{
+    margin-right:                   40px;          
+}
+
+#okBtn{
+    margin-right:                   15px;
+}

@@ -1,0 +1,122 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : detailDiagnosis.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 자기진단(세부내용) 화면의 스타일시트
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+/* -- section -------------------------------- */
+section{
+    width:                          800px;
+    height:                         340px;
+}
+
+#stat{ /* OK랑 NG */
+    /* border:                         solid thin; */
+    /* width:                          800px; */
+    /* height:                         60px; */
+    margin-top:                     15px;
+    margin-bottom:                  15px;
+}
+#stat p{ /* OK랑 NG의 P요소*/
+    border:                         solid thin navy;
+    margin:                         0px 10px 5px 670px;
+    width:                          60px;
+    text-align:                     center;
+    color:                          white;
+}
+
+#detailDiag{ /* 장치의 상태 정보들 DIV */
+    border:                         solid 1px navy;
+    border-radius:                  25px;
+    width:                          700px;
+    height:                         240px;
+    margin:                         0px 50px;
+    /* padding-left:                        15px; */
+}
+
+/* -- div sideDevice ---- */
+.sideDevice{ /* 양 사이드 IDD 부분 */
+    /* border:                         solid thin; */
+    width:                          700px;
+    height:                         60px;
+    text-align:                     center;
+    margin-left: 170px;
+    
+}
+
+.sideDevice p{ /* IDD의 P요소 */
+    float:                          left;
+    border:                         solid thin;
+    width:                          100px;
+    height:                         30px;
+    margin-top:                     10px;
+    padding-top:                    2px;
+}
+
+.leftIdd1{ /* 왼쪽 IDD1 */
+    margin-left:                    135px;
+}
+
+.leftIdd2{ /* 왼쪽 IDD2 */
+    margin-right:                   40px;
+}
+
+
+/* -- div centerDevice --- */
+#centerDevice{ /* 센터 div에 FTNDD, 1호차, PII 부분 */
+    /* border:                         solid thin; */
+    width:                          700px;
+    height:                         120px;
+    text-align:                     center;
+}
+
+#centerDevice p, #centerDevice span{ /* 센터 div에 FTNDD, 1호차, PII 부분 */
+    border:                         solid thin navy;
+    float:                          left;
+    color:                          white;
+    font-size:                      20px;
+    font-weight:                    600; 
+}
+
+#centerDevice #ftndd{ /* FTNDD 장치 */
+    width:                          100px;
+    height:                         120px;
+    visibility:                     hidden;
+    
+    margin-left:                    25px;
+    margin-right:                   90px;
+    padding-top:                    40px;
+}
+
+#centerDevice #carNum{ /* X호차 */
+    background:                     rgb(6, 18, 182);
+    width:                          120px;
+    height:                         50px;
+    margin:                         35px 10px 0px 10px;
+    margin-top:                     35px;
+    padding-top:                    8px;
+}
+
+#centerDevice #pii{ /* PII 장치 */
+    width:                          90px;
+    height:                         120px;
+    margin-left:                    90px;
+    padding-top:                    40px;
+    visibility:                     hidden;
+}
+
+.arrowImg{ /* << >> 화살표 */
+    float:                          left;
+    width:                          70px;
+    margin-top:                     25px;
+}
+
+
+/* -- footer ---------------------------------------- */
+#prevBtn{
+    margin-right:                   45px;          
+}

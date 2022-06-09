@@ -1,0 +1,73 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : formNumber.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 편성번호설정
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/formNumber.css">
+          
+        <title>PISC-편성번호설정</title>
+  
+    </head>
+  
+    <body>
+        <div id="container">
+  
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2022. 07. 31</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">편성번호설정</span>
+                <hr id="headerLine">
+            </header>
+  
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+
+                <div id="border">
+                    <!-- 설정한 편성번호 표시하는곳 -->
+                    <div class="area">
+                        <input type="text" id="txtFormNum">
+                    </div>
+
+                    <!-- 숫자 키패드 -->
+                    <div class="area">
+                        <table>
+                            <tr><td onclick="inputNum('1')">1</td><td onclick="inputNum('2')">2</td><td onclick="inputNum('3')">3</td></tr>
+                            <tr><td onclick="inputNum('4')">4</td><td onclick="inputNum('5')">5</td><td onclick="inputNum('6')">6</td></tr>
+                            <tr><td onclick="inputNum('7')">7</td><td onclick="inputNum('8')">8</td><td onclick="inputNum('9')">9</td></tr>
+                            <tr><td onclick="inputNum('b')">←</td><td onclick="inputNum('0')">0</td><td onclick="inputNum('c')">C</td></tr>
+
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+              
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>    
+                <button class="rectFootBtn" id="cancBtn" onclick="location.href='sysInfor.html'">이전</button>
+                <button class="rectFootBtn" id="okBtn" onclick="saveParam()" disabled>확인</button>
+                  
+            </footer>
+  
+        </div>
+
+        <script type="text/javascript" src="../js/formNumber.js"></script>
+  
+  
+    </body>
+  
+</html>

@@ -1,0 +1,197 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : pisc.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 모든 HTML파일에서 공통으로 쓰이는 스타일(Header, Footer,,,,)
+ * Date : 2022.06.09 ~
+ *
+ * --------------------------------------------------------------------- */
+
+*{
+    box-sizing:                     border-box;
+    margin:                         0px;
+    font-family:                    "Nanum Gothic";
+}
+
+body{
+    margin:                         auto; /* 젤로 */
+}
+
+a{
+    text-decoration:                none;
+    color:                          black;
+}
+
+/* -- LCD Resolution: 800 x 3(RGB) x 480 ------------- */
+#container{
+    background-color:               #eeeeee;
+    width:                          800px;
+    height:                         480px;    
+}
+
+:focus{
+    outline:                        none;
+}
+
+
+/* -- header ----------------------------------------- */
+header{
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         80px;
+    position:                       absolute;
+    top:                            0px;
+    padding:                        10px 10px 0px 10px;
+}
+
+#logo{ /* 부산교통공사 로고 */
+    width:                          180px;
+    height:                         50px;
+    float:                          left;
+    margin-bottom:                  5px;
+}
+
+#headerTitle{ /* Header의 타이틀 */
+    /* border:                         solid thin; */
+    width:                          400px;;
+    height:                         50px;
+    float:                          right;
+    padding-top:                    5px;
+
+    text-align:                     center;
+    font-size:                      30px;
+    font-weight:                    bold;
+    
+}
+
+#nowTime{ /* 현재시간 */
+    /* border:                         solid thin; */
+    width:                          180px;
+    height:                         50px;
+    float:                          right;
+    padding-left:                   20px;
+
+    text-align:                     center;
+    font-size:                      18px;
+    font-weight:                    bold;
+}
+
+#headerLine{ /* 헤더와 섹션 사이의 네이비색 밑줄 */
+    width:                          780px;
+    height:                         10px;
+    background:                   rgb(47, 85, 150);
+    border:                         0px;
+    
+}
+
+/* -- section ---------------------------------------- */
+section{
+    position:                       absolute;
+    top:                            80px;
+}
+
+
+/* -- footer ----------------------------------------- */
+footer{
+    /* border:                         solid thin; */
+    width:                          800px;
+    height:                         65px;
+    position:                       absolute;
+    top:                            420px;
+}
+
+.roundFootBtn{ /* Footer에 이전, 시작, 정지... 에 쓰이는 둥근 버튼 */
+    border:                         outset;
+    border-top:                     solid rgb(205, 205, 205);
+    border-left:                    solid rgb(205, 205, 205);
+    /* box-shadow:                     1px 1px 1px 1px rgb(182, 182, 182); */
+    border-radius:                  10px;
+    width:                          140px;
+    height:                         45px;
+    background-color:               rgb(235, 235, 235);
+    
+    float:                          right;
+    /* margin-right:                   45px; */
+    padding:                        3px;
+
+    font-size:                      25px;
+    text-align:                     center;
+}
+
+/* .roundFootBtn:hover{
+    box-shadow: 200px 0 0 0 rgba(192, 192, 192, 0.5) inset;
+} */
+
+
+.rectFootBtn{ /* Footer에 확인, 이전...에 쓰이는 네모 버튼 */
+    border:                         outset;
+    border-top:                     solid rgb(205, 205, 205);
+    border-left:                    solid rgb(205, 205, 205);
+    width:                          120px;
+    height:                         45px;
+    background-color:               rgb(235, 235, 235);
+    float:                          right;
+    /* margin-right:                   30px; */
+    padding:                        3px;
+
+    font-size:                      25px;
+    text-align:                     center;
+}
+
+.roundFootBtn:active, .rectFootBtn:active{
+    background-color:               rgb(172, 172, 172);
+    color:                          white;
+}
+
+.updnBtn{
+    display:                        inline-block;
+    height:                         250px;
+}
+
+/* -- up/down btn -- */
+.updnBtn button{
+    position: relative;
+    width: 80px;
+    height: 90px;
+    background-color: rgb(68, 114, 196);
+    border-radius:0.5em;
+}
+
+.upBtn:after{
+    position: absolute;
+    top: 20px;
+    left: 8px;
+    content:'';
+	border: solid;
+	border-width: 0px 30px 50px 30px;
+	border-color: transparent transparent #FFFFFF transparent;
+}
+
+.downBtn:after{
+    position: absolute;
+    top: 20px;
+    left: 8px;
+    content:'';
+	border: solid;
+	border-width: 50px 30px 0px 30px;
+	border-color:  #FFFFFF transparent transparent transparent;
+
+}
+
+.updnBtn button{
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.42);
+}
+/* -------- */
+
+
+/* -- etc --------------------------------------- */
+.ngColor{ /* NG를 나타내는 RED */
+    background-color:               red;
+}
+
+.okColor{ /* OK를 나타내는 GREEN */
+    background-color:               rgb(0, 185, 25);
+    
+}
+

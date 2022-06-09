@@ -1,0 +1,63 @@
+ <!-- ----------------------------------------------------------------------
+    *
+    * File : menu.html
+    * Author : WJIS KEJ
+    * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML
+    * File Description : 시스템정보 화면
+    * Date : 2022.06.09 ~
+    *
+  -------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="../css/pisc.css">
+        <link type="text/css" rel="stylesheet" href="../css/updateInfor.css">
+        
+        <title>PISC-업데이트정보</title>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- header --------------------------------------------------------------- -->
+            <header>
+                <img id="logo" src="../image/BusanMetroLogo.png" alt="부산교통공사 로고" >
+                <span id="nowTime">
+                    <p id="txtDate">2020. 02. 04</p>
+                    <p id="txtTime">AM 10 : 25 : 30</p>
+                </span>
+                <span id="headerTitle">업데이트정보</span>
+                <hr id="headerLine">
+            </header>
+
+            <!-- section -------------------------------------------------------------- -->
+            <section>
+            
+                <!-- Log 부분 -->
+                <div class="updateDiv">
+                    <p class="sysLog">
+                        펌웨어 업데이트 로그......<br>
+                        영상 업데이트 로그...<br>
+                    </p>
+                </div>
+
+                <!-- 버튼 부분 -->
+                <div class="updateDiv">
+                    <button class="sysBtn">펌웨어 업데이트</button>
+                    <button class="sysBtn">영상 업데이트</button>
+                    <button class="sysBtn">운행정보 추출</button>
+                </div>
+               
+            </section>
+            
+            <!-- footer --------------------------------------------------------------- -->
+            <footer>
+                <button class="roundFootBtn" id="prevBtn" onclick="location.href='sysInfor.html'">이전</button>
+            </footer>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,127 @@
+/* --------------------------------------------------------------------- 
+ *
+ * File : update.css
+ * Author : WJIS KEJ
+ * PJ Description : 부산1호선 200량 화면설정기(PIC) HTML의 CSS(Style) 
+ * File Description : 업데이트 화면 스타일시트
+ * Date : 2021.07.02
+ *
+ * --------------------------------------------------------------------- */
+
+ 
+/* *{
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "Nanum Gothic";
+} */
+
+body{
+    margin: auto; /*젤로*/
+}
+
+/* a{
+    text-decoration: none;
+    color: black;
+} */
+
+/* -- LCD Resolution: 800 x 3(RGB) x 480 ------------- */
+#container{
+    background-color: #eeeeee;
+    width: 800px;
+    height: 480px;    
+}
+
+:focus{
+    outline: none;
+}
+
+
+
+/* -- header ----------------------------------------- */
+header{
+    /* border: solid thin; */
+    width: 800px;
+    height: 80px;
+    position: absolute;
+    top: 0px;
+    padding: 10px 10px 0px 10px;
+}
+
+#logo{ /* 부산교통공사 로고 */
+    width: 180px;
+    height: 50px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+#headerTitle{ /* Header의 타이틀 */
+    /* border: solid thin; */
+    width: 400px;
+    height: 50px;
+    float: left;
+    padding-top: 5px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+
+#headerLine{ /* 헤더와 섹션 사이의 네이비색 밑줄 */
+    width: 780px;
+    height: 10px;
+    background: rgb(47, 85, 150);
+    border: 0px;
+    
+}
+
+/* -- section ---------------------------------------- */
+section{
+    position: absolute;
+    top: 80px;
+    /* border: solid thin; */
+    width: 800px;
+    height: 340px;
+}
+
+#filedate{
+    border: solid thin;
+    background-color: white;
+    width: 60%;
+    height: 12%;
+    margin: 2% 0% 0% 5%;
+    padding: 1%;
+    float: left;
+}
+ 
+progress{
+    margin: 1% 5%;
+    width: 90%;
+    height: 20%;
+    /* border-radius: 4px; */
+}
+
+#updatebtn{
+    width: 25%;
+    height: 17%;
+    float: left;
+    margin: 2% 5% 0% 2%;
+    font-size: larger;
+    background-color: rgb(51, 51, 201);
+    color: white;
+    font-weight: bold;
+}
+
+#content{
+    overflow: auto;
+    border: solid thin;
+    background-color: white;
+    width: 90%;
+    height: 60%;
+    margin: 0% 5%;
+}
+
+.filedate_title{
+    float: left;
+}
