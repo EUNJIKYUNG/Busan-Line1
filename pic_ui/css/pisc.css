@@ -16,6 +16,7 @@
 
 body{
     margin:                         auto; /* 젤로 */
+    overflow:                       hidden;
 }
 
 a{
