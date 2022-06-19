@@ -1,0 +1,192 @@
+[
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CDataManage.cpp.o -c /home/eunji/project/busan_line1/pic/CDataManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CDataManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CDevIdentify.cpp.o -c /home/eunji/project/busan_line1/pic/CDevIdentify.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CDevIdentify.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CMediaManage.cpp.o -c /home/eunji/project/busan_line1/pic/CMediaManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CMediaManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommManage.cpp.o -c /home/eunji/project/busan_line1/pic/CommManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/COperation.cpp.o -c /home/eunji/project/busan_line1/pic/COperation.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/COperation.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CWebServer.cpp.o -c /home/eunji/project/busan_line1/pic/CWebServer.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CWebServer.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/main.cpp.o -c /home/eunji/project/busan_line1/pic/main.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/main.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/main.i.cpp.o -c /home/eunji/project/busan_line1/pic/main.i.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/main.i.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/tickCount.cpp.o -c /home/eunji/project/busan_line1/pic/tickCount.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/tickCount.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/civetweb/CivetServer.cpp.o -c /home/eunji/project/busan_line1/pic/civetweb/CivetServer.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/civetweb/CivetServer.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -o CMakeFiles/336PISC.dir/civetweb/civetweb.c.o   -c /home/eunji/project/busan_line1/pic/civetweb/civetweb.c",
+  "file": "/home/eunji/project/busan_line1/pic/civetweb/civetweb.c"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/commonsocket/CDatagram.cpp.o -c /home/eunji/project/busan_line1/pic/commonsocket/CDatagram.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/commonsocket/CDatagram.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/commonsocket/CUDPMulticast.cpp.o -c /home/eunji/project/busan_line1/pic/commonsocket/CUDPMulticast.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/commonsocket/CUDPMulticast.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/commonsocket/CUDPUnicast.cpp.o -c /home/eunji/project/busan_line1/pic/commonsocket/CUDPUnicast.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/commonsocket/CUDPUnicast.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/DataRelated/DBQueryHandler.cpp.o -c /home/eunji/project/busan_line1/pic/DataRelated/DBQueryHandler.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/DataRelated/DBQueryHandler.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/DataRelated/SQL3QueryHandler.cpp.o -c /home/eunji/project/busan_line1/pic/DataRelated/SQL3QueryHandler.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/DataRelated/SQL3QueryHandler.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/DataRelated/SQLData.cpp.o -c /home/eunji/project/busan_line1/pic/DataRelated/SQLData.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/DataRelated/SQLData.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/DataRelated/SQLDataElement.cpp.o -c /home/eunji/project/busan_line1/pic/DataRelated/SQLDataElement.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/DataRelated/SQLDataElement.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/DataRelated/ValueMonitor.cpp.o -c /home/eunji/project/busan_line1/pic/DataRelated/ValueMonitor.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/DataRelated/ValueMonitor.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommHandlers/CFDIIndicator.cpp.o -c /home/eunji/project/busan_line1/pic/CommHandlers/CFDIIndicator.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommHandlers/CFDIIndicator.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommHandlers/CIDD1Handler.cpp.o -c /home/eunji/project/busan_line1/pic/CommHandlers/CIDD1Handler.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommHandlers/CIDD1Handler.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommHandlers/CMTXHandler2.cpp.o -c /home/eunji/project/busan_line1/pic/CommHandlers/CMTXHandler2.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommHandlers/CMTXHandler2.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommHandlers/CPII1Indicator.cpp.o -c /home/eunji/project/busan_line1/pic/CommHandlers/CPII1Indicator.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommHandlers/CPII1Indicator.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommHandlers/CPII2Indicator.cpp.o -c /home/eunji/project/busan_line1/pic/CommHandlers/CPII2Indicator.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommHandlers/CPII2Indicator.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/CommHandlers/CTCMSHandler.cpp.o -c /home/eunji/project/busan_line1/pic/CommHandlers/CTCMSHandler.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/CommHandlers/CTCMSHandler.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/LEDIndicator/CLEDIndBufManage.cpp.o -c /home/eunji/project/busan_line1/pic/LEDIndicator/CLEDIndBufManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/LEDIndicator/CLEDIndBufManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/LEDIndicator/ColorPalette.cpp.o -c /home/eunji/project/busan_line1/pic/LEDIndicator/ColorPalette.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/LEDIndicator/ColorPalette.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/LEDIndicator/uni2ksc.cpp.o -c /home/eunji/project/busan_line1/pic/LEDIndicator/uni2ksc.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/LEDIndicator/uni2ksc.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/TablesDefine/DefinePropTables.cpp.o -c /home/eunji/project/busan_line1/pic/TablesDefine/DefinePropTables.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/TablesDefine/DefinePropTables.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/TablesDefine/DefineTables.cpp.o -c /home/eunji/project/busan_line1/pic/TablesDefine/DefineTables.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/TablesDefine/DefineTables.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/TablesDefine/PropTableManage.cpp.o -c /home/eunji/project/busan_line1/pic/TablesDefine/PropTableManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/TablesDefine/PropTableManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/TablesDefine/TableManage.cpp.o -c /home/eunji/project/busan_line1/pic/TablesDefine/TableManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/TablesDefine/TableManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/ScheduleManage/Schedule.cpp.o -c /home/eunji/project/busan_line1/pic/ScheduleManage/Schedule.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/ScheduleManage/Schedule.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/ScheduleManage/ScheduleManage.cpp.o -c /home/eunji/project/busan_line1/pic/ScheduleManage/ScheduleManage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/ScheduleManage/ScheduleManage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/ScheduleManage/TimeRelated.cpp.o -c /home/eunji/project/busan_line1/pic/ScheduleManage/TimeRelated.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/ScheduleManage/TimeRelated.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/OperRelated/Opermanage.cpp.o -c /home/eunji/project/busan_line1/pic/OperRelated/Opermanage.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/OperRelated/Opermanage.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/MediaWrapper/CMediaWrapper.cpp.o -c /home/eunji/project/busan_line1/pic/MediaWrapper/CMediaWrapper.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/MediaWrapper/CMediaWrapper.cpp"
+},
+{
+  "directory": "/home/eunji/project/busan_line1/pic/build",
+  "command": "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  --sysroot=/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot  -DJSONCOLUMNFUNC -DNO_CACHING -DOPERMANAGE_CALLBACK_FUNC -DUSE_WEBSOCKET  -g   -std=gnu++11 -o CMakeFiles/336PISC.dir/webPages/GetCSSPages.cpp.o -c /home/eunji/project/busan_line1/pic/webPages/GetCSSPages.cpp",
+  "file": "/home/eunji/project/busan_line1/pic/webPages/GetCSSPages.cpp"
+}
+]

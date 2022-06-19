@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/eunji/project/busan_line1/pic'
+make: Leaving directory '/home/eunji/project/busan_line1/pic'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

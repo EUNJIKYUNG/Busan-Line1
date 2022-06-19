@@ -1,0 +1,10 @@
+[
+  {
+    "name": "336PISC Tool Chain",
+    "compilers": {
+        "C":"/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+        "CC" : "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc",
+        "CXX" : "/opt/toolchain/gcc-linaro-5.4.1-2017.01-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++"
+    }
+  }
+]

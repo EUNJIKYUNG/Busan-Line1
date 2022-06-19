@@ -1,0 +1,187 @@
+#ifndef TABLE_MANAGE
+#define TABLE_MANAGE
+#include <memory>
+#include <vector>
+#include "../DataRelated/SQLData.h"
+#ifdef USE_MDB
+#include "ODBC/ODBCClass.h"
+#endif
+
+#ifdef USE_MDB
+typedef void* HDBC;
+#endif
+struct sqlite3;
+class DBQueryHandler;
+class DBEditor;
+
+class CTableManage
+{
+public:
+	CTableManage(void);
+	virtual ~CTableManage(void);
+private:
+	static sqlite3 *m_dbSource;
+
+	static std::shared_ptr<DBQueryHandler> m_pQueryHandler;
+	static std::shared_ptr<DBEditor> m_pEditor;
+
+	static sqlite3 *m_dbOperDB;
+
+	static std::shared_ptr<DBQueryHandler> m_pOperDB;
+	static std::shared_ptr<DBEditor> m_pOperDBEditor;
+
+
+	static sqlite3 *m_dbPIDDB;
+
+	static std::shared_ptr<DBQueryHandler> m_pPIDDB;
+	static std::shared_ptr<DBEditor> m_pPIDDBEditor;
+public:
+	static CTableManage *GetInstance();
+
+	DECLARE_VECTOR_FOR_CLASS(PIIText)
+	DECLARE_VECTOR_FOR_CLASS(StationInformation)
+	DECLARE_VECTOR_FOR_CLASS(DestinationInformation)
+	DECLARE_VECTOR_FOR_CLASS(StationDistance)
+	DECLARE_VECTOR_FOR_CLASS(StopPtnHeader)
+	DECLARE_VECTOR_FOR_CLASS(AudioFilePool)
+	DECLARE_VECTOR_FOR_CLASS(VideoFilePool)
+	DECLARE_VECTOR_FOR_CLASS(AudioContents)
+	DECLARE_VECTOR_FOR_CLASS(VideoContents)
+	DECLARE_VECTOR_FOR_CLASS(PIDContents)
+	DECLARE_VECTOR_FOR_CLASS(UpdateFileTypeList)
+	DECLARE_VECTOR_FOR_CLASS(FontPool)
+	DECLARE_VECTOR_FOR_CLASS(TrainNumber)
+	DECLARE_VECTOR_FOR_CLASS(EDDIndicator)
+	DECLARE_VECTOR_FOR_CLASS(ETNDIndicator)
+	DECLARE_VECTOR_FOR_CLASS(EDDIndex)
+	DECLARE_VECTOR_FOR_CLASS(EditorTagTable)
+	DECLARE_VECTOR_FOR_CLASS(DisplayItemPool)
+	DECLARE_VECTOR_FOR_CLASS(TargetDevices)
+	
+
+
+
+
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(PIIText)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(StationInformation)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DestinationInformation)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(StationDistance)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(StopPtnHeader)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(StopPtnRoutes)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(EventLists)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(AudioFilePool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(VideoFilePool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(VideoContents)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(AudioContents)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(VideoIndexList)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(PIDContents)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(PIDIndexList)
+
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(AudioIndexList)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(UpdateFileTypeList);
+	DECLARE_EDITOR_POINTER_FOR_CLASS(EDDIndicator)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(ETNDIndicator)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(EDDIndex)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(EDDIndexList)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(EditorTagTable)
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(UpdateFile)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(FontPool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(TrainNumber)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(TargetDevices)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(UpdateTarget)
+
+#ifdef LINEMAP_USED
+	DECLARE_VECTOR_FOR_CLASS(StringPool)
+	DECLARE_VECTOR_FOR_CLASS(BitmapImagePool)
+	DECLARE_VECTOR_FOR_CLASS(ImageIndexList)
+
+	DECLARE_VECTOR_FOR_CLASS(LineMapPool)
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(StringPool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(BitmapImagePool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(ImageIndexList)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(ImageIndex)
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapPool)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapSpot)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapPath)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapTile)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPool)
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItem)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayMetaItem)
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPropPos)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPropRotation)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPropScale)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPropColor)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPropZOrder)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(DisplayItemPropVisible)
+
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPropPos)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPropRotation)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPropScale)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPropColor)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPropZOrder)
+	DECLARE_EDITOR_POINTER_FOR_CLASS(LineMapDisplayItemPropVisible)
+
+#endif
+
+	bool InitDatabase(const char *pszPath);
+	bool CloseDatabase();
+	void LoadDatabase();
+	void SaveModified();
+
+
+	//Save DB For Update
+	DECLARE_EDITOR_POINTER_FOR_CLASS(UpdateMarking)
+	DECLARE_VECTOR_FOR_CLASSSAVE(UpdateMarking)
+	DECLARE_VECTOR_FOR_CLASSSAVE(StationInformation)
+	DECLARE_VECTOR_FOR_CLASSSAVE(DestinationInformation)
+	DECLARE_VECTOR_FOR_CLASSSAVE(StationDistance)
+	DECLARE_VECTOR_FOR_CLASSSAVE(StopPtnHeader)
+	DECLARE_VECTOR_FOR_CLASSSAVE(AudioFilePool)
+	DECLARE_VECTOR_FOR_CLASSSAVE(VideoFilePool)
+	DECLARE_VECTOR_FOR_CLASSSAVE(AudioContents)
+	DECLARE_VECTOR_FOR_CLASSSAVE(VideoContents)
+	DECLARE_VECTOR_FOR_CLASSSAVE(PIDContents)
+	DECLARE_VECTOR_FOR_CLASSSAVE(UpdateFileTypeList)
+	DECLARE_VECTOR_FOR_CLASSSAVE(FontPool)
+	DECLARE_VECTOR_FOR_CLASSSAVE(TrainNumber)
+	DECLARE_VECTOR_FOR_CLASSSAVE(EDDIndicator)
+	DECLARE_VECTOR_FOR_CLASSSAVE(ETNDIndicator)
+	DECLARE_VECTOR_FOR_CLASSSAVE(EDDIndex)
+	DECLARE_VECTOR_FOR_CLASSSAVE(EditorTagTable)
+	DECLARE_VECTOR_FOR_CLASSSAVE(DisplayItemPool)
+	DECLARE_VECTOR_FOR_CLASSSAVE(TargetDevices)
+	DECLARE_VECTOR_FOR_CLASSSAVE(PIIText)
+
+
+	DECLARE_VECTOR_FOR_CLASSSAVE(StringPool)
+	DECLARE_VECTOR_FOR_CLASSSAVE(BitmapImagePool)
+	DECLARE_VECTOR_FOR_CLASSSAVE(ImageIndexList)
+	DECLARE_VECTOR_FOR_CLASSSAVE(LineMapPool)
+
+
+	bool OpenOperDB(const char *pszPath);
+	bool CloseOperDB();
+	bool OpenPIDDB(const char *pszPath);
+	bool ClosePIDDB();
+	void CopyOperDB();
+	void CopyPIDDB();
+	void CopyCloneOperDB();
+
+	bool GenerateUpdateMarkingString();
+	char* GetUpdateMarkingString();
+	void SetUpdateMarkingString();
+private:
+	char m_szUpdateMarkingString[64];
+
+};
+
+
+#endif
