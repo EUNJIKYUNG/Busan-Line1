@@ -78,10 +78,10 @@ public:
 			"            <header>\r\n"
 			"                <img id=\"logo\" src=\"/app/image/Logo.png\" alt=\"\xec\x84\x9c\xec\x9a\xb8\xea\xb5\x90\xed\x86\xb5\xea\xb3\xb5\xec\x82\xac"" \xeb\xa1\x9c\xea\xb3\xa0""\" >\r\n"
 			"            <span id=\"nowTime\">\r\n"
-			"                <p id=\"txtDate\">2020. 02. 04</p>\r\n"
+			"                <p id=\"txtDate\">2022. 06. 04</p>\r\n"
 			"                <p id=\"txtTime\">AM 10 : 25 : 30</p>\r\n"
 			"            </span>\r\n"
-			"                <span id=\"headerTitle\">\xec\x97\xb4\xec\xb0\xa8\xeb\xb2\x88\xed\x98\xb8"" : xxxx</span>\r\n"
+			"                <span id=\"headerTitle\">\xec\x97\xb4\xec\xb0\xa8\xeb\xb2\x88\xed\x98\xb8"" : </span>\r\n"
 			"                <hr id=\"headerLine\">\r\n"
 			"            </header>\r\n"
 			"            \r\n"
@@ -90,25 +90,29 @@ public:
 			"                <p id=\"version\">Ver 1.0.0</p> <!-- \xed\x8e\x8c\xec\x9b\xa8\xec\x96\xb4"" \xeb\xb2\x84\xec\xa0\x84"" \xed\x91\x9c\xec\x8b\x9c"" -->\r\n"
 			"\r\n"
 			"                <table id=\"statusTable\">\r\n"
-			"                    <tr> <!-- \xec\x9a\xb4\xed\x96\x89\xec\x83\x81\xed\x83\x9c"" -->\r\n"	//Operation Status
+			"                    <tr> <!-- \xec\x9a\xb4\xed\x96\x89\xec\x83\x81\xed\x83\x9c"" -->\r\n"	// 운행상태
 			"                        <td>\xec\x9a\xb4\xed\x96\x89\xec\x83\x81\xed\x83\x9c""</td>\r\n"	
 			"                        <td>\xec\x88\x98\xeb\x8f\x99""</td>\r\n"
 			"                    </tr>\r\n"
-			"                    <tr> <!-- \xeb\xac\xb8\xec\x83\x81\xed\x83\x9c"" -->\r\n"		//Door Status
+			"                    <tr> <!-- \xeb\xac\xb8\xec\x83\x81\xed\x83\x9c"" -->\r\n"		// 문상태
 			"                        <td>\xeb\xac\xb8\xec\x83\x81\xed\x83\x9c""</td>\r\n"
 			"                        <td>\xec\x97\xb4\xeb\xa6\xbc""</td>\r\n"
 			"                    </tr>\r\n"
-			"                    <tr> <!-- TCMS -->\r\n"		//TCMS Status
+			"                    <tr> <!-- TCMS -->\r\n"		// TCMS 상태
 			"                        <td>TCMS</td>\r\n"
 			"                        <td>OK</td>\r\n"
 			"                    </tr>\r\n"
 			"                    <tr> <!-- \xec\x97\xad\xea\xb0\x84\xea\xb1\xb0\xeb\xa6\xac"" -->\r\n"
-			"                        <td>\xec\x97\xad\xea\xb0\x84\xea\xb1\xb0\xeb\xa6\xac""</td>\r\n" //Distance Between Station
+			"                        <td>\xec\x97\xad\xea\xb0\x84\xea\xb1\xb0\xeb\xa6\xac""</td>\r\n" // 역간거리
 			"                        <td>0000M</td>\r\n"
 			"                    </tr>\r\n"
 			"                    <tr> <!-- \xec\x9a\xb4\xed\x96\x89\xea\xb1\xb0\xeb\xa6\xac"" -->\r\n"
-			"                        <td>\xec\x9a\xb4\xed\x96\x89\xea\xb1\xb0\xeb\xa6\xac""</td>\r\n"	//Proceeded Distance
+			"                        <td>\xec\x9a\xb4\xed\x96\x89\xea\xb1\xb0\xeb\xa6\xac""</td>\r\n"	// 운행거리
 			"                        <td>0000M</td>\r\n"
+			"                    </tr>\r\n"
+			"                    <tr> <!-- \xec\x9a\xb4\xed\x96\x89\xea\xb1\xb0\xeb\xa6\xac"" -->\r\n"
+			"                        <td>\xeb\x8f\x99\xec\x9e\x91\xec\x83\x81\xed\x83\x9c""</td>\r\n"	//동작상태
+			"                        <td>M</td>\r\n"
 			"                    </tr>\r\n"
 			"                </table>\r\n"
 			"\r\n"
