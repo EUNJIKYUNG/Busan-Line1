@@ -164,7 +164,7 @@ void CTableManage::LoadDatabase()
 	INIT_EDITORCLASS(EDDIndicator, m_pQueryHandler, m_pEditor)
 	INIT_EDITORCLASS(ETNDIndicator, m_pQueryHandler, m_pEditor)
 	INIT_EDITORCLASS(TargetDevices, m_pQueryHandler, m_pEditor)
-	INIT_EDITORCLASS(PIIText, m_pQueryHandler, m_pEditor)
+	//INIT_EDITORCLASS(PIIText, m_pQueryHandler, m_pEditor)
 
 
 	INIT_EDITORCLASS_WITH_TEMPVECTORS(StopPtnRoutes, &TEMP_VECTOR_CLASS(StopPtnRoutes), NULL, m_pQueryHandler, m_pEditor)
@@ -176,14 +176,14 @@ void CTableManage::LoadDatabase()
 	INIT_EDITORCLASS_WITH_TEMPVECTORS(EDDIndexList, &TEMP_VECTOR_CLASS(EDDIndexList), NULL, m_pQueryHandler, m_pEditor)
 	INIT_EDITORCLASS_WITH_TEMPVECTORS(UpdateTarget, &TEMP_VECTOR_CLASS(UpdateTarget), NULL, m_pQueryHandler, m_pEditor)
 
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(StopPtnHeader), 0, &TEMP_VECTOR_CLASS(StopPtnRoutes));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&TEMP_VECTOR_CLASS(StopPtnRoutes), 0, &TEMP_VECTOR_CLASS(EventLists));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(VideoContents), 0, &TEMP_VECTOR_CLASS(VideoIndexList));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(AudioContents), 0, &TEMP_VECTOR_CLASS(AudioIndexList));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(PIDContents), 0, &TEMP_VECTOR_CLASS(PIDIndexList));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(UpdateFileTypeList), 0, &TEMP_VECTOR_CLASS(UpdateFile));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(UpdateFileTypeList), 1, &TEMP_VECTOR_CLASS(UpdateTarget));		//ºÎ¸ð ÀÚ½Ä °ü°è
-	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(EDDIndex), 0, &TEMP_VECTOR_CLASS(EDDIndexList));		//ºÎ¸ð ÀÚ½Ä °ü°è
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(StopPtnHeader), 0, &TEMP_VECTOR_CLASS(StopPtnRoutes));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&TEMP_VECTOR_CLASS(StopPtnRoutes), 0, &TEMP_VECTOR_CLASS(EventLists));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(VideoContents), 0, &TEMP_VECTOR_CLASS(VideoIndexList));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(AudioContents), 0, &TEMP_VECTOR_CLASS(AudioIndexList));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(PIDContents), 0, &TEMP_VECTOR_CLASS(PIDIndexList));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(UpdateFileTypeList), 0, &TEMP_VECTOR_CLASS(UpdateFile));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(UpdateFileTypeList), 1, &TEMP_VECTOR_CLASS(UpdateTarget));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MakeRelationShip<DefaultComparator>(&VECTOR_CLASS(EDDIndex), 0, &TEMP_VECTOR_CLASS(EDDIndexList));		//ï¿½Î¸ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 #ifdef LINEMAP_USED
