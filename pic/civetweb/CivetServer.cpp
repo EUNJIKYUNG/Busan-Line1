@@ -138,18 +138,25 @@ CivetServer::requestHandler(struct mg_connection *conn, void *cbdata)
 
 	if (handler) {
 		if (strcmp(request_info->request_method, "GET") == 0) {
+            printf("CivetServer::requestHandler => GET\n");
 			return handler->handleGet(me, conn) ? 1 : 0;
 		} else if (strcmp(request_info->request_method, "POST") == 0) {
+            printf("CivetServer::requestHandler => POST\n");
 			return handler->handlePost(me, conn) ? 1 : 0;
 		} else if (strcmp(request_info->request_method, "HEAD") == 0) {
+            printf("CivetServer::requestHandler => HEAD\n");
 			return handler->handleHead(me, conn) ? 1 : 0;
 		} else if (strcmp(request_info->request_method, "PUT") == 0) {
+            printf("CivetServer::requestHandler => PUT\n");
 			return handler->handlePut(me, conn) ? 1 : 0;
 		} else if (strcmp(request_info->request_method, "DELETE") == 0) {
+            printf("CivetServer::requestHandler => DELETE\n");
 			return handler->handleDelete(me, conn) ? 1 : 0;
 		} else if (strcmp(request_info->request_method, "OPTIONS") == 0) {
+            printf("CivetServer::requestHandler => OPTIONS\n");
 			return handler->handleOptions(me, conn) ? 1 : 0;
 		} else if (strcmp(request_info->request_method, "PATCH") == 0) {
+            printf("CivetServer::requestHandler => PATCH\n");
 			return handler->handlePatch(me, conn) ? 1 : 0;
 		}
 	}

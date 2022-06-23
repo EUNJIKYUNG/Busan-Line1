@@ -55,6 +55,7 @@ public:
 		rapidjson::Document document;
 		if (data_len > 2)
 		{
+            printf("WebSocketTrainNumber::handleData: handleData(%s)\n", data);
 			document.Parse(data, data_len);
 			if (document.IsArray())
 			{
@@ -86,14 +87,19 @@ public:
 
 	void pushData(const char *pStrName, const char *pStrValue)
 	{
+        printf("WebSockTrainNumberHandler: pushData(%s,%s)\n", pStrName, pStrValue);
 		pthread_mutex_lock(&mutex_lock);
 		std::map<std::string, std::string>::iterator fit = m_mNameValue.find(pStrName);
 		if (((fit != m_mNameValue.end()) && (fit->second != std::string(pStrValue))) || (fit == m_mNameValue.end()))
 		{
+            printf("Change Train Number\n");
 			m_mNameValue[std::string(pStrName)] = std::string(pStrValue);
 			m_mQueueValue[std::string(pStrName)] = std::string(pStrValue);
 		}
+        
 		pthread_mutex_unlock(&mutex_lock);
+        
+		update();
 	}
 
 	bool setCurrentStatus()

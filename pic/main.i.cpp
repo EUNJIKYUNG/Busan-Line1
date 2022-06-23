@@ -60471,7 +60471,7 @@ public:
  void SetPIITextIndex(int nIndex);
  std::function<void(const char*)> pushLineType;
  std::function<void(const char*)> pushNextStation;
- std::function<void(const char*)> pushThisStation;
+ std::function<void(const char*)> pushDestStation;
  std::function<void(const char*)> pushManualOper;
  std::function<void(const char*)> pushDestSelect;
  std::function<void(const char*)> pushTrainNumber;

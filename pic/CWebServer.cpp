@@ -173,12 +173,20 @@ bool CWebServer::InitWebServer()
 	pOM->m_tDestInd = std::bind(&COperation::SetFTNDD, COperation::GetInstance(), std::placeholders::_1);
 	pOM->m_tFuncDRM = std::bind(&COperation::SetDRMIndex, COperation::GetInstance(), std::placeholders::_1);
 	pOM->m_tPIIText = std::bind(&COperation::SetPIITextIndex,COperation::GetInstance(), std::placeholders::_1);
-	pO->pushLineType = std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtLineType", std::placeholders::_1,true);
-	pO->pushThisStation =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtNextStation", std::placeholders::_1, true);
-	pO->pushNextStation =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtDestination", std::placeholders::_1, true);
+
+    pO->chgOperMode = std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtOperModeStat", std::placeholders::_1,true);      // 운행상태
+
+	pO->pushLineType = std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtLineType", std::placeholders::_1,true);         // 행선
+	pO->pushDestStation =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtDestination", std::placeholders::_1, true);   // 종착역
+	pO->pushNextStation =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtNextStation", std::placeholders::_1, true);   // 이번역
+
+    pO->chgTrainNum =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtTrainNum", std::placeholders::_1, true);   // 열차번호
+
+    // 수동운행이면 노선설정, 열차번호설정, 수동운행 버튼 활성화 됨
 	pO->pushManualOper=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnMO",std::placeholders::_1);
 	pO->pushDestSelect=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnDS",std::placeholders::_1);
 	pO->pushTrainNumber=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnTN",std::placeholders::_1);
+    
 	pO->updateMenu=std::bind(&CWSMenuHandle::update,m_pWSMenuHandle.get());
 	pO->setStopPtnRouteString(&m_strStopRoutes);
 	pO->m_tSimulation=std::bind(&CWebServer::SetSelectedStopPtnList, this, std::placeholders::_1, std::placeholders::_2, "routeList", OM_SIMULATION);

@@ -29,10 +29,13 @@ public:
 	void SetPIITextIndex(int nIndex);
 	std::function<void(const char*)> pushLineType;
 	std::function<void(const char*)> pushNextStation;
-	std::function<void(const char*)> pushThisStation;
+	std::function<void(const char*)> pushDestStation;
 	std::function<void(const char*)> pushManualOper;
 	std::function<void(const char*)> pushDestSelect;
 	std::function<void(const char*)> pushTrainNumber;
+    std::function<void(const char*)> chgTrainNum;
+    std::function<void(const char*)> chgOperMode;
+    
 	std::function<void(void)> updateMenu;
 	std::function<bool(int, std::string&)> m_tSimulation;
 

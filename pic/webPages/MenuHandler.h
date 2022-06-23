@@ -100,7 +100,7 @@ public:
 			"                    <button id=\"btnTN\" onclick=\"location.href='/trainNumber'\">\xec\x97\xb4\xec\xb0\xa8\xeb\xb2\x88\xed\x98\xb8\xec\x84\xa4\xec\xa0\x95""</button>\r\n"
 			"                    <button onclick=\"location.href='/simulation'\">\xeb\xaa\xa8\xec\x9d\x98\xec\xa3\xbc\xed\x96\x89""</button>\r\n"
 			//"                    <button onclick=\"location.href='/formNumber'\">\xed\x8e\xb8\xec\x84\xb1\xeb\xb2\x88\xed\x98\xb8""</button>\r\n"
-			"                    <button>\xed\x8e\xb8\xec\x84\xb1\xeb\xb2\x88\xed\x98\xb8""</button>\r\n"
+			"                    <button>\xED\x99\x94\xEB\xA9\xB4\xEB\xB0\x9D\xEA\xB8\xB0""</button>\r\n"
 			"\r\n"
 			"                </div>\r\n"
 			"\r\n"

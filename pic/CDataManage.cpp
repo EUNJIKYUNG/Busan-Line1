@@ -130,6 +130,9 @@ bool CDataManage::setTrainNumber(int nPage,const char *pTrainNumber)
 	CTableManage *pTM = CTableManage::GetInstance();
 	std::vector<std::shared_ptr<CSQLData>>::iterator xit,nit;
 	CLEDIndBufManage *pFDI = CFDIIndBufManage::GetInstance();
+
+    printf("CDataManage::setTrainNumber(%d,%s)\n", nPage, pTrainNumber);
+
 	if ((!pFDI->m_bInUse) && (!pFDI->m_bUpdated))
 	{
 		int nLen=strlen(pTrainNumber);

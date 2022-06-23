@@ -88,6 +88,10 @@ bool COperation::SetTrainNumber(const char *pTrainNumber)
 	pDM->UpdateBitmap();
 #endif
 
+    printf("COperation::SetTrainNumber(%s)\n", pTrainNumber);
+
+    pOM->SetTrainNumber(pTrainNumber, false);
+
 	pthread_mutex_lock(&m_tOperation);
 	if (pOM->SetTrainNumber(pTrainNumber, false))
 	{
@@ -165,7 +169,7 @@ void COperation::RunLoop()
 
 	if (pushLineType)
 	{
-		std::string strDest = pOM->GetDestinationNameUTF8(OM_NORMAL);
+		std::string strDest = pOM->GetCurrentStationNameUTF8(OM_NORMAL);
 		pushLineType(strDest.c_str());
 	}
 
@@ -174,11 +178,17 @@ void COperation::RunLoop()
 		std::string strNext = pOM->GetNextStationNameUTF8(OM_NORMAL);
 		pushNextStation(strNext.c_str());
 	}
-	if (pushThisStation)
+	if (pushDestStation)
 	{
-		std::string strThis = pOM->GetCurrentStationNameUTF8(OM_NORMAL);
-		pushThisStation(strThis.c_str());
+		std::string strThis = pOM->GetDestinationNameUTF8(OM_NORMAL);
+		pushDestStation(strThis.c_str());
 	}
+    if (chgTrainNum)
+    {
+        std::string trainNum = pOM->GetTrainNumber(5555);
+        chgTrainNum(trainNum.c_str());
+    }
+
 
 	CDevIdentify *pIdent=CDevIdentify::GetInstance();
 	pIdent->IsAllDeviceWorking();
@@ -187,11 +197,15 @@ void COperation::RunLoop()
 
 int32_t COperation::GetOperationMode()
 {
+    printf("COperation::GetOperationMode\n");
 	return m_nOperationMode;
 }
 
 void COperation::SetOperationMode(int32_t nOperationMode)
 {
+    const char* pOperMode[2] = {"\xEC\x9E\x90\xEB\x8F\x99", "\xEC\x88\x98\xEB\x8F\x99"};
+    printf("COperation::SetOperationMode(%d)\n", nOperationMode);
+
 	m_nOperationMode = nOperationMode;
 	if(pushManualOper)
 		pushManualOper(m_nOperationMode?"false":"true");
@@ -201,6 +215,11 @@ void COperation::SetOperationMode(int32_t nOperationMode)
 		pushTrainNumber(m_nOperationMode?"false":"true");
 	if(updateMenu)
 		updateMenu();
+
+    if(chgOperMode)
+    {
+        chgOperMode(pOperMode[nOperationMode]);
+    }
 }
 
 
@@ -222,14 +241,18 @@ void COperation::SetSimulationOffset(int32_t nDistance)
 void COperation::SetIDD1Information(OPERATION_MODE eMode)
 {
 	COperManage *pOM = COperManage::GetInstance();
-	m_tPISC2IDD.uCurStnCode = pOM->GetStationCodeByOrder(-1, eMode);
-	m_tPISC2IDD.uNexStnCode = pOM->GetStationCodeByOrder(0, eMode);
-	m_tPISC2IDD.uDesStnCode = pOM->GetDestStationCode();
+	m_tPISC2IDD.uCurStnCode = pOM->GetStationCodeByOrder(-1, eMode);    // 현재역
+	m_tPISC2IDD.uNexStnCode = pOM->GetStationCodeByOrder(0, eMode);     // 다음역
+	m_tPISC2IDD.uDesStnCode = pOM->GetDestStationCode();                // 종착역
 	m_tPISC2IDD.uDistance = pOM->GetProceededDistance(false, eMode);
 	m_tPISC2IDD.uTotalDistance = pOM->GetLimitDistance(false, eMode);
-	m_tPISC2IDD.uStopPtnIndex = pOM->GetStopPatternIndex();
+	m_tPISC2IDD.uStopPtnIndex = pOM->GetStopPatternIndex();             // 노선번호
 
-	printf("Cur:%u Nex:%u Des:%u StpPtn:%u\n",m_tPISC2IDD.uCurStnCode,m_tPISC2IDD.uNexStnCode,m_tPISC2IDD.uDesStnCode,m_tPISC2IDD.uStopPtnIndex);
+	printf("Dep:%u Cur:%u Nex:%u Des:%u StpPtn:%u\n" , pOM->GetDepatStationCode()
+                                                ,m_tPISC2IDD.uCurStnCode
+                                                ,m_tPISC2IDD.uNexStnCode
+                                                ,m_tPISC2IDD.uDesStnCode
+                                                ,m_tPISC2IDD.uStopPtnIndex);
 	if (m_uPIDCount)
 		m_tPISC2IDD.uEventIndex = m_uPIDIndex;
 	else

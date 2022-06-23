@@ -183,6 +183,8 @@ public:
 
 	void pushData(const char *pStrName, const char *pStrValue)
 	{
+        printf("WebSockDestination::pushData(%s,%s)\n", pStrName, pStrValue);
+        
 		pthread_mutex_lock(&mutex_lock);
 		std::map<std::string, std::string>::iterator fit = m_mNameValue.find(pStrName);
 		if (((fit != m_mNameValue.end()) && (fit->second != std::string(pStrValue))) || (fit == m_mNameValue.end()))

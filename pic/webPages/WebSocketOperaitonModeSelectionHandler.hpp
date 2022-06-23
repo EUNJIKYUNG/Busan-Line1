@@ -67,6 +67,9 @@ private:
 	virtual bool handleData(CivetServer *server, struct mg_connection *conn, int bits, char *data, size_t data_len)
 	{
 		rapidjson::Document document;
+
+        printf("WebSockOperationModeSelect::handleData(%s)\n",data);
+
 		if (data_len > 2)
 		{
 			document.Parse(data, data_len);
@@ -138,6 +141,8 @@ public:
 
 	void pushData(const char *pStrName, const char *pStrValue)
 	{
+        printf("WebSockOperationModeSelect::pushData(%s, %s)\n",pStrName, pStrValue);
+
 		pthread_mutex_lock(&mutex_lock);
 		std::map<std::string, std::string>::iterator fit = m_mNameValue.find(pStrName);
 		if (((fit != m_mNameValue.end()) && (fit->second != std::string(pStrValue))) || (fit == m_mNameValue.end()))

@@ -25,14 +25,20 @@ COperManage::COperManage()
 	memset(m_szDestinationUTF8,0,sizeof(m_szDestinationUTF8));
 	memset(m_szCurStnUTF8,0,sizeof(m_szCurStnUTF8));
 	memset(m_szNexStnUTF8,0,sizeof(m_szNexStnUTF8));
+    memset(m_szDstStnUTF8,0,sizeof(m_szDstStnUTF8));
+    memset(m_szDepStnUTF8,0,sizeof(m_szDepStnUTF8));
+    
     m_pDestination=NULL;
     m_pTrainNumber=NULL;
 	m_eOperMode = OM_NORMAL;
 
+
+    m_nDepStnCode=0;
     m_nDstStnCode=0;
     m_nCurStnCode=0;
     m_nNexStnCode=0;
     m_nDstIndIdx=0;
+    m_nStopPtnIdx=0;
 
     m_nAudioEventIdx=0;
     m_nDRMEventIdx=0;
@@ -165,7 +171,10 @@ bool COperManage::SetRouteByDepArrCode(int nDepartueStationCode,int nArrivalStat
 	int nDepartureStationIndex=0,nArrivalStationIndex=0;
 	CTableManage *pTM=CTableManage::GetInstance();
 	std::vector<SHARED_PTRC(CSQLData)>::iterator depit=find_if(pTM->m_vStationInformation.begin(),pTM->m_vStationInformation.end(),findStationInformationByCode(nDepartueStationCode));
-	if(depit!=pTM->m_vStationInformation.end())
+	
+    printf("COperManage::SetRouteByDepArrCode(%d,%d, %d)\n", nDepartueStationCode, nArrivalStationCode, bForce);
+    
+    if(depit!=pTM->m_vStationInformation.end())
 	{
 		nDepartureStationIndex=(*depit)->GetIndex();
 	}
@@ -206,7 +215,10 @@ bool COperManage::SetRouteByArrCode(int nArrivalStationCode, bool bForce)
 bool COperManage::SetRouteByDestinationCode(int nDestinationCode)
 {
 	CTableManage *pTM = CTableManage::GetInstance();
-	std::vector<SHARED_PTRC(CSQLData)>::iterator it=find_if(pTM->m_vDestinationInformation.begin(), pTM->m_vDestinationInformation.end(), findDestinationInformationByCode(nDestinationCode));
+	
+    printf("COperManage::SetRouteByDestinationCode(%d)\n", nDestinationCode);
+    
+    std::vector<SHARED_PTRC(CSQLData)>::iterator it=find_if(pTM->m_vDestinationInformation.begin(), pTM->m_vDestinationInformation.end(), findDestinationInformationByCode(nDestinationCode));
 	if (it != pTM->m_vDestinationInformation.end())
 	{
 		int nDestinationIndex=(*it)->GetIndex();
@@ -217,6 +229,7 @@ bool COperManage::SetRouteByDestinationCode(int nDestinationCode)
 			return SetStopPatternByIndex(pTN->nStopPatternIndex);
 		}
 	}
+    
 	return false;
 }
 
@@ -268,6 +281,9 @@ bool COperManage::SetStopPattern(SHARED_PTRC(CSQLData) &pData)
     TrainNumber *pTN=(TrainNumber*)GET_PTFROMSP(pData);
     int nDepartureStationCode=0;
     CTableManage *pTM=CTableManage::GetInstance();
+
+    printf("COperManage::SetStopPattern\n");
+
 	return SetStopPatternByIndex(pTN->nStopPatternIndex);
 }
 
@@ -277,6 +293,9 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 	bool bRet = false;
 	int nDepartureStationCode = 0;
 	CTableManage *pTM = CTableManage::GetInstance();
+
+    printf("COperManage::SetStopPatternByIndex(%d)\n", nIndex);
+
 	std::vector<SHARED_PTRC(CSQLData)>::iterator spit = find_if(pTM->m_vStopPtnHeader.begin(), pTM->m_vStopPtnHeader.end(), findSQLData(nIndex));
 	if (spit != pTM->m_vStopPtnHeader.end())
 	{
@@ -287,27 +306,35 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 		m_nStopPtnIdx = nIndex;
 		m_nLineMapIdx = pSPH->nRelatedLineMapIndex;
 
-
+        // 종착역
 		std::vector<SHARED_PTRC(CSQLData)>::iterator snit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPH->nArrivalStnIndex));
 		if (snit != pTM->m_vStationInformation.end())
 		{
 			StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
+            std::string str = UnicodeToUTF8(pSI->szStationName[0]);
 			m_nDstStnCode = pSI->nStationCode;
+            strcpy(m_szDstStnUTF8, str.c_str());
 		}
 		else
 		{
 			m_nDstStnCode = 0;
+            memset(m_szDstStnUTF8, 0, sizeof(m_szDstStnUTF8));
 		}
 
-
+        // 출발역
 		snit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPH->nDepartStnIndex));
 		if (snit != pTM->m_vStationInformation.end())
 		{
 			StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
+            std::string str = UnicodeToUTF8(pSI->szStationName[0]);
 			nDepartureStationCode = pSI->nStationCode;
+            strcpy(m_szDepStnUTF8, str.c_str());
+            
 		}
 		else
 		{
+            m_nDepStnCode = 0;
+            memset(m_szDepStnUTF8, 0, sizeof(m_szDepStnUTF8));
 			/*if(GET_PTFROMIT(spit)->m_vChildItem[0].vSQLData.size())
 			{
 				StopPtnRoutes *pRoutes=(StopPtnRoutes*)GET_PTFROMIT(GET_PTFROMIT(spit)->m_vChildItem[0].vSQLData.begin());
@@ -330,7 +357,14 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 			SetOperationMode((OPERATION_MODE)iMode);
 		}
 		SetOperationMode(OM_NORMAL);
+
+        // 출발역 
+        m_nDepStnCode = nDepartureStationCode;
+        printf("nDepartureStationCode:%d, m_nDstStnCode:%d\n", nDepartureStationCode, m_nDstStnCode);
 	}
+
+    
+
 	return bRet;
 }
 
@@ -339,6 +373,9 @@ bool COperManage::SetTrainNumber(const TYC *pszTrainNumPrefix,const TYC *pszTrai
     bool bRet=false;
     CTableManage *pTM=CTableManage::GetInstance();
     std::vector<SHARED_PTRC(CSQLData)>::iterator vit=find_if(pTM->m_vTrainNumber.begin(),pTM->m_vTrainNumber.end(),findTrainNumberByPrefix(pszTrainNumPrefix,pszTrainNum));
+
+    printf("COperManage::SetTrainNumber(%s, %s, %d)\n", pszTrainNumPrefix, pszTrainNum, bForce);        
+
     if(vit!=pTM->m_vTrainNumber.end())
     {
         TrainNumber *pTN=(TrainNumber*)GET_PTFROMIT(vit);
@@ -375,27 +412,34 @@ bool COperManage::SetTrainNumber(const TYC *pszTrainNum,bool bForce,int *pTNInde
     bool bRet=false;
     CTableManage *pTM=CTableManage::GetInstance();	
     std::vector<SHARED_PTRC(CSQLData)>::iterator vit=find_if(pTM->m_vTrainNumber.begin(),pTM->m_vTrainNumber.end(),findTrainNumber(pszTrainNum));
-    if(vit!=pTM->m_vTrainNumber.end())
-    {
-        TrainNumber *pTN=(TrainNumber*)GET_PTFROMIT(vit);
-		if(pTNIndex)
-			(*pTNIndex)=pTN->GetIndex();
 
-        std::vector<SHARED_PTRC(CSQLData)>::iterator deit=find_if(pTM->m_vDestinationInformation.begin(),pTM->m_vDestinationInformation.end(),findSQLData(pTN->nDestinationIndex));
-        if(deit!=pTM->m_vDestinationInformation.end())
-        {
-            DestinationInformation *pDI=(DestinationInformation*)GET_PTFROMIT(deit);
-            m_pDestination=pDI->szDestinationName[0];
-        }
-        else
-            m_pDestination=NULL;
-        STRCPY(m_szTrainNumber,pszTrainNum);
-        bRet=SetStopPattern((*vit));
-        if(bRet)
-        {
-            STRCPY(m_szTrainNumber,pszTrainNum);
-        }
-    }
+    printf("COperManage::SetTrainNumber(%s, %d)\n", pszTrainNum, bForce);
+
+    //220623 KEJ 열차번호 저장
+    strcpy(m_szTrainNumber, pszTrainNum);
+    // if(vit!=pTM->m_vTrainNumber.end())
+    // {
+    //     TrainNumber *pTN=(TrainNumber*)GET_PTFROMIT(vit);
+	// 	if(pTNIndex)
+	// 		(*pTNIndex)=pTN->GetIndex();
+
+    //     std::vector<SHARED_PTRC(CSQLData)>::iterator deit=find_if(pTM->m_vDestinationInformation.begin(),pTM->m_vDestinationInformation.end(),findSQLData(pTN->nDestinationIndex));
+    //     if(deit!=pTM->m_vDestinationInformation.end())
+    //     {
+    //         DestinationInformation *pDI=(DestinationInformation*)GET_PTFROMIT(deit);
+    //         m_pDestination=pDI->szDestinationName[0];
+    //     }
+    //     else
+    //         m_pDestination=NULL;
+    //     STRCPY(m_szTrainNumber,pszTrainNum);
+    //     bRet=SetStopPattern((*vit));
+    //     if(bRet)
+    //     {
+    //         STRCPY(m_szTrainNumber,pszTrainNum);
+    //     }
+    // }
+
+    printf("m_szTrainNumber:%s\n", m_szTrainNumber);
     return bRet;
 }
 
@@ -587,6 +631,9 @@ bool COperManage::SetStationByDistanceIndex(int nStationIndex, bool bDepArr, boo
 		else
 			bRet=GoToStation(pSPR->nArrStnCode, bDepArr, bCurMode, eOperMode);
 	}
+
+    printf("COperManage::SetStationByDistanceIndex(%d,%d,%d)\n", nStationIndex, bDepArr, bCurMode);
+
 	return bRet;
 }
 
@@ -622,6 +669,10 @@ bool COperManage::GoToStation(int nStationCode,bool bDepArr,bool bCurMode,OPERAT
 	std::vector<SHARED_PTRC(CSQLData)>::reverse_iterator srrit;
     std::vector<SHARED_PTRC(CSQLData)>::iterator snit,srit,diit,deit,altit;
 	bool bAltRoutes = false;
+
+
+    printf("COperManage::GoToStation(%d,%d,%d)\n", nStationCode, bDepArr, bCurMode);
+
 	if(pRoutes->size())
     {
 
@@ -763,6 +814,7 @@ bool COperManage::GoToStation(int nStationCode,bool bDepArr,bool bCurMode,OPERAT
 				pSPR->nDOVideoIndex;*/
             }
 			m_bArrivedAtNextStation = false;
+            printf("********************************nArrStnIdx:%d\n", nArrStnIdx);
             snit=find_if(pTM->m_vStationInformation.begin(),pTM->m_vStationInformation.end(),findSQLData(nArrStnIdx));
             if(snit!=pTM->m_vStationInformation.end())
             {
@@ -1500,12 +1552,19 @@ void COperManage::SetTolerance(int nTolerance)
 	m_nTolerance=nTolerance;
 }
 
-	//Get Current Station Code;
+// Get Departure Station Code
+int COperManage::GetDepatStationCode()
+{
+    return m_nDepStnCode;                           //Departure station code
+
+}
+
+//Get Current Station Code;
 int COperManage::GetThisStationCode()
 {
 	return m_nCurStnCode;							//current station code
 }
-	//Get Next Staiton Code
+//Get Next Staiton Code
 int COperManage::GetNextStationCode()
 {
     return m_nNexStnCode;							//next station code
@@ -1709,7 +1768,12 @@ void COperManage::GetStopPtnHeaderTypeList(int nType)
 
 const char *COperManage::GetCurrentStationNameUTF8(OPERATION_MODE eOperMode)
 {
-	return (const char*)m_szCurStnUTF8[eOperMode];
+	return (const char*)m_szDepStnUTF8;//;m_szCurStnUTF8[eOperMode];
+}
+
+const char *COperManage::GetDestinationNameUTF8(OPERATION_MODE eOperMode)
+{
+	return (const char*)m_szDstStnUTF8;//m_szDestinationUTF8;
 }
 
 const char *COperManage::GetNextStationNameUTF8(OPERATION_MODE eOperMode)
@@ -1717,7 +1781,7 @@ const char *COperManage::GetNextStationNameUTF8(OPERATION_MODE eOperMode)
 	return (const char*)m_szNexStnUTF8[eOperMode];
 }
 
-const char *COperManage::GetDestinationNameUTF8(OPERATION_MODE eOperMode)
+const char *COperManage::GetTrainNumber(int num)
 {
-	return (const char*)m_szDestinationUTF8;
+    return (const char*)m_szTrainNumber;
 }

@@ -550,6 +550,8 @@ public:
 	void InitMappedValue();
 	//get mapping value
 	bool GetMappedValue(const TYC *pTagName, SHARED_PTRC(CValueMonitor) *pVM);
+    // Get Departure Station Code
+    int GetDepatStationCode();
 	//Get Current Station Code;
 	int GetThisStationCode();
 	//Get Next Staiton Code
@@ -611,6 +613,7 @@ private:
 
 	std::map<TSTRING, int *> m_mMappedValue;	//map value 
 
+    int m_nDepStnCode;                          //departure station code
     int m_nDstStnCode;							//destination station code
     int m_nCurStnCode;							//current station code
     int m_nNexStnCode;							//next station code
@@ -639,9 +642,14 @@ public:
 	const char *GetCurrentStationNameUTF8(OPERATION_MODE eOperMode = OM_NORMAL);
 	const char *GetNextStationNameUTF8(OPERATION_MODE eOperMode = OM_NORMAL);
 	const char *GetDestinationNameUTF8(OPERATION_MODE eOperMode = OM_NORMAL);
+    const char *GetTrainNumber(int num = 0);
+
 private:
 	char m_szCurStnUTF8[OM_NULL][128];		//current station string UTF-8 encoding;
 	char m_szNexStnUTF8[OM_NULL][128];		//next station string UTF-8 encoding;
+    char m_szDepStnUTF8[128];		//departure station string UTF-8 encoding;
+	char m_szDstStnUTF8[128];		//destination station string UTF-8 encoding;
+
 	char m_szDestinationUTF8[128];			//Destination UTF-8 encoding;
 public:
     int *m_pDistanceList[OM_NULL];				//distance list for gui
