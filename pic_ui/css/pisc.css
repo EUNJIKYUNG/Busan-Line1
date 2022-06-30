@@ -145,12 +145,14 @@ footer{
     color:                          white;
 }
 
+
+
+/* -- up/down btn -- */
 .updnBtn{
     display:                        inline-block;
     height:                         250px;
 }
 
-/* -- up/down btn -- */
 .updnBtn button{
     position: relative;
     width: 80px;
