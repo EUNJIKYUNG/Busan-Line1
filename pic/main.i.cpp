@@ -60289,7 +60289,7 @@ typedef struct _TCMS2PIS
  _TIMEINFO tInfo;
  _INPUT INPUT;
  _OPERINFO OPERINFO;
- uint8_t uASP[8];
+ uint8_t uAsp[8];
  uint8_t uSIGLAN;
  uint8_t : 8;
  uint8_t : 8;
@@ -60434,17 +60434,17 @@ struct _PIS2TCMS
 
 struct _PISC2IDD1
 {
- uint16_t uTgtDev;
- uint16_t uCabDir;
- uint16_t uCurStnCode;
- uint16_t uNexStnCode;
- uint16_t uDesStnCode;
- uint16_t uDistance;
- uint16_t uTotalDistance;
- uint16_t uDoorDir;
- uint16_t uStopPtnIndex;
- uint16_t uCarCongestion[8];
- uint32_t uEventIndex;
+ uint16_t uTgtDev;          // 2
+ uint16_t uCabDir;          // 4
+ uint16_t uCurStnCode;      // 6
+ uint16_t uNexStnCode;      // 8
+ uint16_t uDesStnCode;      // 10
+ uint16_t uDistance;        // 12
+ uint16_t uTotalDistance;   // 14
+ uint16_t uDoorDir;         // 16
+ uint16_t uStopPtnIndex;    // 18
+ uint16_t uCarCongestion[8];    // 18+16 = 34
+ uint32_t uEventIndex;          // 38
 };
 # 8 "/home/eunji/336PISC/COperation.h" 2
 
