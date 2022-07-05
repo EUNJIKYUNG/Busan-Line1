@@ -49,6 +49,9 @@ public:
 	void processReceived(char *pBuf, int nSize, sockaddr_in* pAddr)
 	{
 		CDevIdentify *pIdent = CDevIdentify::GetInstance();
+
+        printf("CIDD1Handler::processReceived(%s)\n", pBuf);
+
 		if ((GETCLASSA(pAddr) == 192)&&
 			(GETCLASSB(pAddr) == 9))
 		{ 
@@ -99,13 +102,17 @@ public:
 		
 		COperation *pOM = COperation::GetInstance();
 		pOM->GetIDD1Information(&m_tSEND);
-		m_tSEND.uTgtDev = m_uDevID[m_uID];
+		// m_tSEND.uTgtDev = m_uDevID[m_uID];
+
 		memcpy(m_uSendBuffer, &m_tSEND, sizeof(m_tSEND));
 		m_tSockAddr.sin_family = AF_INET;
 		//m_tSockAddr
 		m_tSockAddr.sin_addr.s_addr = inet_addr(m_chIPMultiAddr);
 		m_tSockAddr.sin_port = htons(m_wPort);
         send(m_uSendBuffer, sizeof(m_tSEND),(sockaddr*)&m_tSockAddr,sizeof(m_tSockAddr));
+
+        printf("CIDD1Handler::handleToBeSent(%dbytes)\n", sizeof(m_tSEND));
+       
 #ifdef		VIEWER_SUPPORT
 		CViewerManage::UpdateViewer(1001);
 #endif

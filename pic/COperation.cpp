@@ -197,7 +197,6 @@ void COperation::RunLoop()
 
 int32_t COperation::GetOperationMode()
 {
-    printf("COperation::GetOperationMode\n");
 	return m_nOperationMode;
 }
 
@@ -238,21 +237,25 @@ void COperation::SetSimulationOffset(int32_t nDistance)
 	m_nSimDistance=nDistance;
 }
 
+// 220629 KEJ IDD1 패킷 만드는 부분
 void COperation::SetIDD1Information(OPERATION_MODE eMode)
 {
 	COperManage *pOM = COperManage::GetInstance();
-	m_tPISC2IDD.uCurStnCode = pOM->GetStationCodeByOrder(-1, eMode);    // 현재역
-	m_tPISC2IDD.uNexStnCode = pOM->GetStationCodeByOrder(0, eMode);     // 다음역
-	m_tPISC2IDD.uDesStnCode = pOM->GetDestStationCode();                // 종착역
-	m_tPISC2IDD.uDistance = pOM->GetProceededDistance(false, eMode);
-	m_tPISC2IDD.uTotalDistance = pOM->GetLimitDistance(false, eMode);
-	m_tPISC2IDD.uStopPtnIndex = pOM->GetStopPatternIndex();             // 노선번호
+    m_tPISC2IDD.OPERINFO.uSTARTCODE= pOM->GetDepatStationCode();   // 출발역
+	m_tPISC2IDD.OPERINFO.uCURCODE = pOM->GetStationCodeByOrder(-1, eMode);    // 현재역
+	m_tPISC2IDD.OPERINFO.uNEXCODE = pOM->GetStationCodeByOrder(0, eMode);     // 다음역
+	m_tPISC2IDD.OPERINFO.uDSTCODE = pOM->GetDestStationCode();                // 종착역
+	m_tPISC2IDD.uDIST[0] = (pOM->GetProceededDistance(false, eMode)>>8)&0xFF;   // 이동거리
+    m_tPISC2IDD.uDIST[1] = pOM->GetProceededDistance(false, eMode)&0xFF;
+	// m_tPISC2IDD.uTotalDistance = pOM->GetLimitDistance(false, eMode);
+	// m_tPISC2IDD.uStopPtnIndex = pOM->GetStopPatternIndex();             // 노선번호
 
-	printf("Dep:%u Cur:%u Nex:%u Des:%u StpPtn:%u\n" , pOM->GetDepatStationCode()
-                                                ,m_tPISC2IDD.uCurStnCode
-                                                ,m_tPISC2IDD.uNexStnCode
-                                                ,m_tPISC2IDD.uDesStnCode
-                                                ,m_tPISC2IDD.uStopPtnIndex);
+	printf("Dep:%u Cur:%u Nex:%u Des:%u Dist:%u StpPtn:%u\n" , m_tPISC2IDD.OPERINFO.uSTARTCODE
+                                                , m_tPISC2IDD.OPERINFO.uCURCODE
+                                                , m_tPISC2IDD.OPERINFO.uNEXCODE
+                                                , m_tPISC2IDD.OPERINFO.uDSTCODE
+                                                , (m_tPISC2IDD.uDIST[0]<<8)|m_tPISC2IDD.uDIST[1]
+                                                , pOM->GetStopPatternIndex());
 	if (m_uPIDCount)
 		m_tPISC2IDD.uEventIndex = m_uPIDIndex;
 	else
