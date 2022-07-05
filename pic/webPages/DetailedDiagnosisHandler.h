@@ -54,12 +54,19 @@ public:
 			nNextPage = 1;
 			strcpy(chForwardDev, "<p class=\"frontDev\" id=\"D_FTNDD\">FTNDD</p>\r\n");
 			strcpy(chRearDev, "<p class=\"rearDev\" id=\"D_PII_2\">PII2</p>\r\n");
-			strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_R1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_R2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_R2\">IDD2</p>\r\n                    </div>\r\n");
-			strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_L1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_L2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_L2\">IDD2</p>\r\n                    </div>\r\n");
-			sprintf(chPrevDev, "                        <img class=\"arrowImg\" src=\"/app/image/prevCar.png\" alt=\"\xec\x99\xbc\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xec\x9d\xb4\xec\xa0\x84"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nPrevPage);
-			sprintf(chNextDev, "                        <img class=\"arrowImg\" src=\"/app/image/nextCar.png\" alt=\"\xec\x98\xa4\xeb\xa5\xb8\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xeb\x8b\xa4\xec\x9d\x8c"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nNextPage);
-			sprintf(chCarNumber,"                        <span id=\"carNum\">%d\xed\x98\xb8\xec\xb0\xa8""</span>\r\n", nCarNumber+1);
-			break;
+			// strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_R1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_R2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_R2\">IDD2</p>\r\n                    </div>\r\n");
+			// strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_L1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_L2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_L2\">IDD2</p>\r\n                    </div>\r\n");
+			strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd2\" id=\"D_IDD2_R1\">RMD4</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R2\">RMD5</p><p class=\"leftIdd2\" id=\"D_IDD1_R1\">RMD6</p>\r\n                    </div>\r\n");
+			strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd2\" id=\"D_IDD2_L1\">RMD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L2\">RMD2</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD1_L1\">RMD3</p>\r\n                    </div>\r\n");
+			
+            // sprintf(chPrevDev, "                        <img class=\"arrowImg\" src=\"/app/image/prevCar.png\" alt=\"\xec\x99\xbc\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xec\x9d\xb4\xec\xa0\x84"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nPrevPage);
+			// sprintf(chNextDev, "                        <img class=\"arrowImg\" src=\"/app/image/nextCar.png\" alt=\"\xec\x98\xa4\xeb\xa5\xb8\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xeb\x8b\xa4\xec\x9d\x8c"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nNextPage);
+			sprintf(chPrevDev, "                        <button class=\"arrowImgLeft\" onclick=\"location.href='detailedDiagnosis?car=%d'\"></button>\r\n", nPrevPage);
+			sprintf(chNextDev, "                        <button class=\"arrowImgRight\" onclick=\"location.href='detailedDiagnosis?car=%d'\"></button>\r\n", nNextPage);
+			
+            sprintf(chCarNumber,"                        <span id=\"carNum\">%d\xed\x98\xb8\xec\xb0\xa8""</span>\r\n", nCarNumber+1);
+            
+            break;
 		case 1:
 		case 2:
 		case 3:
@@ -70,22 +77,33 @@ public:
 			nNextPage = nCarNumber + 1;
 			strcpy(chForwardDev, "<p class=\"frontDev\" id=\"D_PII_1\">PII1</p>\r\n");
 			strcpy(chRearDev, "<p class=\"rearDev\" id=\"D_PII_2\">PII2</p>\r\n");
-			strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_R1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_R2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_R2\">IDD2</p>\r\n                    </div>\r\n");
-			strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_L1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_L2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_L2\">IDD2</p>\r\n                    </div>\r\n");
-			sprintf(chPrevDev, "                        <img class=\"arrowImg\" src=\"/app/image/prevCar.png\" alt=\"\xec\x99\xbc\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xec\x9d\xb4\xec\xa0\x84"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nPrevPage);
-			sprintf(chNextDev, "                        <img class=\"arrowImg\" src=\"/app/image/nextCar.png\" alt=\"\xec\x98\xa4\xeb\xa5\xb8\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xeb\x8b\xa4\xec\x9d\x8c"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nNextPage);
+			// strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_R1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_R2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_R2\">IDD2</p>\r\n                    </div>\r\n");
+			// strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_L1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_L2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_L2\">IDD2</p>\r\n                    </div>\r\n");
+			// sprintf(chPrevDev, "                        <img class=\"arrowImg\" src=\"/app/image/prevCar.png\" alt=\"\xec\x99\xbc\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xec\x9d\xb4\xec\xa0\x84"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nPrevPage);
+			// sprintf(chNextDev, "                        <img class=\"arrowImg\" src=\"/app/image/nextCar.png\" alt=\"\xec\x98\xa4\xeb\xa5\xb8\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xeb\x8b\xa4\xec\x9d\x8c"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nNextPage);
+			// sprintf(chCarNumber, "                        <span id=\"carNum\">%d\xed\x98\xb8\xec\xb0\xa8""</span>\r\n", nCarNumber+1);
+			strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd2\" id=\"D_IDD2_R1\">RMD4</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R2\">RMD5</p><p class=\"leftIdd2\" id=\"D_IDD1_R1\">RMD6</p>\r\n                    </div>\r\n");
+			strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd2\" id=\"D_IDD2_L1\">RMD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L2\">RMD2</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD1_L1\">RMD3</p>\r\n                    </div>\r\n");
+			sprintf(chPrevDev, "                        <button class=\"arrowImgLeft\" onclick=\"location.href='detailedDiagnosis?car=%d'\"></button>\r\n", nPrevPage);
+			sprintf(chNextDev, "                        <button class=\"arrowImgRight\" onclick=\"location.href='detailedDiagnosis?car=%d'\"></button>\r\n", nNextPage);
 			sprintf(chCarNumber, "                        <span id=\"carNum\">%d\xed\x98\xb8\xec\xb0\xa8""</span>\r\n", nCarNumber+1);
-			break;
+            break;
 		case 7:
 			nPrevPage = 6;
 			nNextPage = 0;
 			strcpy(chForwardDev, "<p class=\"frontDev\" id=\"D_PII_2\">PII2</p>\r\n");
 			strcpy(chRearDev, "<p class=\"rearDev\" id=\"D_FTNDD\">FTNDD</p>\r\n");
-			strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_R1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_R2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_R2\">IDD2</p>\r\n                    </div>\r\n");
-			strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd1\" id=\"D_IDD1_L1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_L2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_L2\">IDD2</p>\r\n                    </div>\r\n");
-			sprintf(chPrevDev, "                        <img class=\"arrowImg\" src=\"/app/image/prevCar.png\" alt=\"\xec\x99\xbc\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xec\x9d\xb4\xec\xa0\x84"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nPrevPage);
-			sprintf(chNextDev, "                        <img class=\"arrowImg\" src=\"/app/image/nextCar.png\" alt=\"\xec\x98\xa4\xeb\xa5\xb8\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xeb\x8b\xa4\xec\x9d\x8c"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nNextPage);
-			sprintf(chCarNumber, "                        <span id=\"carNum\">0\xed\x98\xb8\xec\xb0\xa8""</span>\r\n");
+			// strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n<p class=\"leftIdd1\" id=\"D_IDD1_R1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_R2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_R2\">IDD2</p>\r\n                    </div>\r\n");
+			// strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd1\" id=\"D_IDD1_L1\">IDD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L1\">IDD2</p>\r\n<p class=\"rightIdd1\" id=\"D_IDD1_L2\">IDD1</p>\r\n<p class=\"rightIdd2\" id=\"D_IDD2_L2\">IDD2</p>\r\n                    </div>\r\n");
+			// sprintf(chPrevDev, "                        <img class=\"arrowImg\" src=\"/app/image/prevCar.png\" alt=\"\xec\x99\xbc\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xec\x9d\xb4\xec\xa0\x84"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nPrevPage);
+			// sprintf(chNextDev, "                        <img class=\"arrowImg\" src=\"/app/image/nextCar.png\" alt=\"\xec\x98\xa4\xeb\xa5\xb8\xec\xaa\xbd"" \xed\x99\x94\xec\x82\xb4\xed\x91\x9c""(\xeb\x8b\xa4\xec\x9d\x8c"" \xec\x97\xb4\xec\xb0\xa8\xeb\xa1\x9c"" \xeb\x84\x98\xea\xb9\x80"")\" onclick=\"location.href='detailedDiagnosis?car=%d'\">\r\n", nNextPage);
+			// sprintf(chCarNumber, "                        <span id=\"carNum\">8\xed\x98\xb8\xec\xb0\xa8""</span>\r\n");
+
+            strcpy(chDnDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd2\" id=\"D_IDD2_R1\">RMD4</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_R2\">RMD5</p><p class=\"leftIdd2\" id=\"D_IDD1_R1\">RMD6</p>\r\n                    </div>\r\n");
+			strcpy(chUpDev, "                    <div class=\"sideDevice\">  \r\n <p class=\"leftIdd2\" id=\"D_IDD2_L1\">RMD1</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD2_L2\">RMD2</p>\r\n<p class=\"leftIdd2\" id=\"D_IDD1_L1\">RMD3</p>\r\n                    </div>\r\n");
+			sprintf(chPrevDev, "                        <button class=\"arrowImgLeft\" onclick=\"location.href='detailedDiagnosis?car=%d'\"></button>\r\n", nPrevPage);
+			sprintf(chNextDev, "                        <button class=\"arrowImgRight\" onclick=\"location.href='detailedDiagnosis?car=%d'\"></button>\r\n", nNextPage);
+			sprintf(chCarNumber, "                        <span id=\"carNum\">8\xed\x98\xb8\xec\xb0\xa8""</span>\r\n");
 			break;
 		}
 
