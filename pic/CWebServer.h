@@ -44,6 +44,7 @@ public:
 	void SetDevStatus(int nCar, const char *pDev, bool bDevice);
 	bool SetStopStopPtnHeaderType(int nType);
 	bool SetStopPtnList(std::string &strJSON, const char *);
+    bool SelectedStopPtnList(int nIndex, std::string &strJSON, const char *,int);
 	bool SetSelectedStopPtnList(int nIndex, std::string &strJSON, const char *,int);
 	bool SetSelectedEventList(int nIndex, std::string &strJSON, const char *,int);
 	void MakeJSONListString(int nCount, std::string &strJSON, std::string &strTemp, const char *chTarget);
@@ -58,6 +59,7 @@ private:
 
 
 	std::string m_strStopHeader;
+    std::string m_strStopSelRoutes;
 	std::string m_strStopRoutes;
 	std::string m_strEventLists;
 	std::string m_StrStopRoutesSimulation;

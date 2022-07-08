@@ -107,8 +107,8 @@ char chMyip[256];
 	// m_pPII2->setTimeoutEvent(100,(void*)m_pPII2.get());
 	m_pMTX = std::shared_ptr<CMTXHandler2>(new CMTXHandler2(30004, 100));
 	m_pMTX->setTimeoutEvent(100,(void*)m_pMTX.get());
-	m_pIDD1 = std::shared_ptr<CIDD1Handler>(new CIDD1Handler(30001, "233.253.18.1", chMyip, 100, 64));
-	m_pIDD1->setTimeoutEvent(100,(void*)m_pIDD1.get());
+	m_pIDD1 = std::shared_ptr<CIDD1Handler>(new CIDD1Handler(30001, "233.253.18.1", chMyip, 100, 64)); // (port, multicast ip, my ip, period, ttl)
+	m_pIDD1->setTimeoutEvent(100,(void*)m_pIDD1.get()); // (period, args)
 	m_pTCMS = std::shared_ptr<CTCMSHandler>(new CTCMSHandler(1001, 0));
 }
 

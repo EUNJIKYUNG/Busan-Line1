@@ -111,7 +111,7 @@ public:
 		m_tSockAddr.sin_port = htons(m_wPort);
         send(m_uSendBuffer, sizeof(m_tSEND),(sockaddr*)&m_tSockAddr,sizeof(m_tSockAddr));
 
-        printf("CIDD1Handler::handleToBeSent(%dbytes)\n", sizeof(m_tSEND));
+        // printf("CIDD1Handler::handleToBeSent(%dbytes)\n", sizeof(m_tSEND));
        
 #ifdef		VIEWER_SUPPORT
 		CViewerManage::UpdateViewer(1001);

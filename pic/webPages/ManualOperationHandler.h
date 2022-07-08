@@ -103,7 +103,6 @@ public:
 			"    \r\n"
 			"            </section>\r\n"
 			"    \r\n"
-			"            <!-- footer --------------------------------------------------------------- -->\r\n"
 			"            <footer>\r\n"
 			"                <button class=\"rectFootBtn\" id=\"cancBtn\" onclick=\"location.href='menu.html'\">\xec\x9d\xb4\xec\xa0\x84""</button>\r\n"
 			"            </footer>\r\n"

@@ -134,9 +134,10 @@ bool CWebServer::InitWebServer()
 
 	m_pWSOperationModeSelectionHandle->m_tSetOperMode = std::bind(&COperation::SetOperationMode, COperation::GetInstance(), std::placeholders::_1);
 	m_pWSOperationModeSelectionHandle->m_tGetOperMode= std::bind(&COperation::GetOperationMode, COperation::GetInstance());
-
+    
 	m_pWSDestinationHandle->setStopPtnHeaderString(&m_strStopHeader);
-	m_pWSDestinationHandle->setStopPtnRouteString(&m_strStopRoutes);
+    m_pWSDestinationHandle->setStopPtnRouteString(&m_strStopRoutes);
+	m_pWSDestinationHandle->selectStopPtnRouteString(&m_strStopSelRoutes);
 	m_pWSDestinationHandle->setStopPtnRouteStringForSimulation(&m_StrStopRoutesSimulation);
 
 	m_pWSSimulationHandle->setStopPtnRouteString(&m_strStopRoutes);
@@ -149,6 +150,7 @@ bool CWebServer::InitWebServer()
 	SetStopStopPtnHeaderByType(0, m_strStopHeader, "stopList");
 
 	m_pWSDestinationHandle->setStopPtnDirection(0);
+    m_pWSDestinationHandle->m_tSelRoutes = std::bind(&CWebServer::SelectedStopPtnList, this, std::placeholders::_1, std::placeholders::_2, "routeList", OM_NORMAL); // 220706 KEJ 노선선택 이벤트
 	m_pWSDestinationHandle->m_tRoutes = std::bind(&CWebServer::SetSelectedStopPtnList, this, std::placeholders::_1, std::placeholders::_2, "routeList", OM_NORMAL);
 	m_pWSDestinationHandle->m_tDirection = std::bind(&CWebServer::SetStopStopPtnHeaderByType, this, std::placeholders::_1, std::placeholders::_2, "stopList");
 	m_pWSDestinationHandle->m_tConfirmStopPtn = std::bind(&COperation::SetStopPatternByIndex, COperation::GetInstance(), std::placeholders::_1);
@@ -180,12 +182,15 @@ bool CWebServer::InitWebServer()
 	pO->pushDestStation =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtDestination", std::placeholders::_1, true);   // 종착역
 	pO->pushNextStation =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtNextStation", std::placeholders::_1, true);   // 이번역
 
+    // 220706 KEJ 열차번호 설정
     pO->chgTrainNum =std::bind(&CWSIndexHandle::pushData, m_pWSIndexHandle.get(), "txtTrainNum", std::placeholders::_1, true);   // 열차번호
 
     // 수동운행이면 노선설정, 열차번호설정, 수동운행 버튼 활성화 됨
 	pO->pushManualOper=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnMO",std::placeholders::_1);
 	pO->pushDestSelect=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnDS",std::placeholders::_1);
 	pO->pushTrainNumber=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnTN",std::placeholders::_1);
+    pO->pushSimulation=std::bind(&CWSMenuHandle::pushData,m_pWSMenuHandle.get(),"disbtnSIM",std::placeholders::_1);
+    
     
 	pO->updateMenu=std::bind(&CWSMenuHandle::update,m_pWSMenuHandle.get());
 	pO->setStopPtnRouteString(&m_strStopRoutes);
@@ -194,6 +199,8 @@ bool CWebServer::InitWebServer()
 	m_pWSMenuHandle->pushData("disbtnMO","true");
 	m_pWSMenuHandle->pushData("disbtnDS","true");
 	m_pWSMenuHandle->pushData("disbtnTN","true");
+    m_pWSMenuHandle->pushData("disbtnSIM","true");
+    
 #endif
 	return bRet;
 }
@@ -204,8 +211,8 @@ bool CWebServer::SetTrainNumber(const char *pTrainNumber)
 	CDataManage *pDM = CDataManage::GetInstance();
 	if (pDM->setTrainNumber(0, pTrainNumber))
 	{
-		pDM->setFDISync(true);
-		pDM->setUpdateFlagFDIImage();
+		// pDM->setFDISync(true);
+		// pDM->setUpdateFlagFDIImage();
 #ifdef _WIN32
 		pDM->UpdateBitmap();
 #endif
@@ -252,6 +259,35 @@ bool CWebServer::SetStopPtnList(std::string &strJSON,const char *chTarget)
 	}
 	return bRet;
 }
+
+// 220706 KEJ 노선선택 이벤트
+bool CWebServer::SelectedStopPtnList(int nIndex, std::string &strJSON, const char *chTarget,int nOperMode)
+{
+	bool bRet = false;
+	std::string strTemp;
+
+	CTableManage *pTM = CTableManage::GetInstance();
+	COperManage *pOM = COperManage::GetInstance();
+	if (pOM->SelectStopPatternByIndex(nIndex))
+	{
+		pTM->m_pStopPtnRoutesEditor->SetVectors(&pOM->m_vStopRoutes[nOperMode], NULL);
+		pTM->m_pStopPtnRoutesEditor->ResetJSONColumn();
+		pTM->m_pStopPtnRoutesEditor->AddJSONColumn(0);
+		pTM->m_pStopPtnRoutesEditor->AddJSONColumnToFunction(3,
+			std::move(std::bind(&CEditSQLData::ConvertFunctionFieldData, (CEditSQLData*)pTM->m_pStopPtnRoutesEditor.get(),
+				pTM->m_vStationDistance, 4,
+				std::placeholders::_1, std::placeholders::_2)));
+
+		int nCount = pTM->m_pStopPtnRoutesEditor->GetAllJSONColumn(strTemp);
+		if (nCount)
+		{
+			MakeJSONListString(nCount, strJSON, strTemp, chTarget);
+			bRet = true;
+		}
+	}
+	return bRet;
+}
+
 
 bool CWebServer::SetSelectedStopPtnList(int nIndex, std::string &strJSON, const char *chTarget,int nOperMode)
 {

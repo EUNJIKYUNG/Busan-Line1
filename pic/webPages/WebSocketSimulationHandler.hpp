@@ -45,6 +45,7 @@ public:
 		{
 			m_pStrPtnRoutes = pString;
 		}
+		std::function<bool(int, std::string&)> m_tSelRoutes;
 		std::function<bool(int, std::string&)> m_tRoutes;
 		std::function<bool(int, std::string&)> m_tEvent;
 		std::function<bool(int)> m_tConfirmEventList;
@@ -59,14 +60,14 @@ public:
 		virtual bool handleConnection(CivetServer *server, const struct mg_connection *conn)
 		{
 			m_vConn.push_back(conn);
-			//printf("[handleConnection %d]\n",__LINE__);
+			printf("[handleConnection %d]\n",__LINE__);
 			return true;
 		}
 
 		virtual void handleReadyState(CivetServer *server, struct mg_connection *conn)
 		{
-			//printf("[handleReadyState %d]\n",__LINE__);
-			m_tSetSimulationMode(true);
+			printf("[handleReadyState %d]\n",__LINE__);
+			// m_tSetSimulationMode(true); // 220707 KEJ 시뮬레이션 시작 버튼 누르면 시작하도록 함
 			setCurrentStatus();
 			updateList(m_pStrPtnRoutes);
 			update();
@@ -115,7 +116,7 @@ public:
 						}
 						else if (!strcmp("stop", chString))
 						{
-							//m_tSetSimulationMode(false);
+							m_tSetSimulationMode(false);
 							m_tSetDistance(0);
 							pushData("val", "mIgnoreInput=0");
 							update();
@@ -127,8 +128,9 @@ public:
 						}
 						else if (!strcmp("start", chString))
 						{
+                            printf("m_pStrPtnRoutes:%s\n", m_pStrPtnRoutes->c_str());
 							m_tSetDistance(1);
-							//m_tSetSimulationMode(true);
+							m_tSetSimulationMode(true); // 220707 KEJ 시뮬레이션 시작 버튼 누르면 시작하도록 함
 							pushData("val", "mIgnoreInput=1");
 							update();
 						}
@@ -147,7 +149,7 @@ public:
 
 		void pushData(const char *pStrName, const char *pStrValue, bool bUpdate = false)
 		{
-			//printf("[pushData %d]\n",__LINE__);
+			printf("[pushData %d]\n",__LINE__);
 			pthread_mutex_lock(&mutex_lock);
 			std::map<std::string, std::string>::iterator fit = m_mNameValue.find(pStrName);
 			if (((fit != m_mNameValue.end()) && (fit->second != std::string(pStrValue))) || (fit == m_mNameValue.end()))
@@ -162,7 +164,7 @@ public:
 
 		void pushNumberData(const char *pStrName, int nValue,bool bUpdate=false)
 		{
-			//printf("[pushNumberData %d]\n",__LINE__);
+			printf("[pushNumberData %d]\n",__LINE__);
 			if (m_tGetSimulationMode())
 			{
 				pthread_mutex_lock(&mutex_lock);
@@ -186,7 +188,7 @@ public:
 
 		bool setCurrentStatus()
 		{
-			//printf("[currentStatus %d]\n",__LINE__);
+			printf("[currentStatus %d]\n",__LINE__);
 			bool bRetSize = false;
 			pthread_mutex_lock(&mutex_lock);
 			std::map<std::string, std::string>::iterator fit;
@@ -227,6 +229,7 @@ public:
 		bool updateList(std::string *pString)
 		{
 			if (pString)
+                printf("WebSocketSimulation::updateList(%s)\n", pString->c_str());
 				if (pString->length())
 				{
 					pthread_mutex_lock(&mutex_connection);
