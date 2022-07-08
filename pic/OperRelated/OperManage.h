@@ -521,7 +521,7 @@ public:
 	// Initialize all the stop pattern header
     void InitStopPtnHeader              ();
 	// Clone Stop Pattern routes
-    void CloneStopPtnRoutes             (SHARED_PTRC(CSQLData) &pData);
+    void CloneStopPtnRoutes             (SHARED_PTRC(CSQLData) &pData, int nDeparture, int nArrive);
 	// Skip Station		(should be called internally)
     bool SkipStation                    (int nStationCode,bool bInsert,bool bCurMode=true,OPERATION_MODE eOperMode=OM_NORMAL);
 	// Add station to skip station list
@@ -542,6 +542,8 @@ public:
     void SetVideoClearEvent();
 	// Set Stop pattern
     bool SetStopPattern(SHARED_PTRC(CSQLData) &pData);
+    // 220706 KEJ Select Stop Pattern by index 
+    bool SelectStopPatternByIndex(int nIndex);
 	// Set Stop pattern by index
 	bool SetStopPatternByIndex(int nIndex);
 	// Set Stop pattern by index

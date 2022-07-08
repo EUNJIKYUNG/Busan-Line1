@@ -26,6 +26,7 @@ public:
 	CWSDestinationHandle()
 	{
 		m_pStrPtnHeader = 0;
+        m_pStrPtnRoutesSel = 0;
 		m_pStrPtnRoutes = 0;
 		m_nSelectedRouteList = -1;
 		m_nSelectedLineType = -1;
@@ -49,23 +50,31 @@ public:
 	{
 		m_pStrPtnHeader = pString;
 	}
+
+    void selectStopPtnRouteString(std::string *pString)
+	{
+		// m_pStrPtnRoutes = pString;
+        m_pStrPtnRoutesSel = pString;
+	}
 	
 	void setStopPtnRouteString(std::string *pString)
 	{
 		m_pStrPtnRoutes = pString;
+        // m_pStrPtnRoutesSel = pString;
 	}
 
 	void setStopPtnRouteStringForSimulation(std::string *pString)
 	{
 		m_pStrPtnRoutesSim = pString;
 	}
-
+	std::function<bool(int, std::string&)> m_tSelRoutes; // 220706 KEJ 노선선택 이벤트
 	std::function<bool(int, std::string&)> m_tRoutes;
 	std::function<bool(int, std::string&)> m_tDirection;
 	std::function<bool(int, std::string&)> m_tSimulation;
 	std::function<bool(int)> m_tConfirmStopPtn;
 private:
 	std::string *m_pStrPtnHeader;
+    std::string *m_pStrPtnRoutesSel;
 	std::string *m_pStrPtnRoutes;
 	std::string *m_pStrPtnRoutesSim;
 
@@ -128,6 +137,7 @@ private:
 					}
 				}*/
 			}
+            // 220706 KEJ 노선설정 '확인' 눌러야지 설정
 			else
 			{
 				if (document.HasMember("name") && document.HasMember("value"))
@@ -135,15 +145,20 @@ private:
 					char chString[32];
 	
 					strcpy(chString, document["name"].GetString());
+                    printf("WebSockDestination::handleData(name:%s)\n", chString);
+
 					if (!strcmp("selectedstopList",chString))
 					{
 						int nValue = atoi(document["value"].GetString());
-						if (m_tRoutes(nValue, (*m_pStrPtnRoutes)))
+                        
+						if (m_tSelRoutes(nValue, (*m_pStrPtnRoutesSel)))
 						{
-							m_nSelectedRouteList = nValue;
-							updateList(m_pStrPtnRoutes);
-							pushData("sltstopList", document["value"].GetString());
+                            printf("m_pStrPtnRoutesSel:%s\n", m_pStrPtnRoutesSel->c_str());
+							// m_nSelectedRouteList = nValue;
+							updateList(m_pStrPtnRoutesSel);
+							//pushData("sltstopList", document["value"].GetString());
 						}
+                        
 					}
 					else if (!strcmp("selectedDirection", chString))
 					{
@@ -157,19 +172,64 @@ private:
 					}
 					else if (!strcmp("confirmedstopList", chString))
 					{
-						//int nValue = atoi(document["value"].GetString());
-						if (m_nSelectedRouteList)
+                        int nValue = atoi(document["value"].GetString());
+						if (m_tRoutes(nValue, (*m_pStrPtnRoutes)))
 						{
-							m_tConfirmStopPtn(m_nSelectedRouteList);
-
-							if (m_tSimulation(m_nSelectedRouteList, (*m_pStrPtnRoutesSim)))
-							{
-
-							}
+                            setStopPtnRouteString(m_pStrPtnRoutes); // 220707 KEJ 확인버튼 눌러야 설정되도록 함
+                            printf("m_pStrPtnRoutes:%s\n", m_pStrPtnRoutes->c_str());
+							m_nSelectedRouteList = nValue;
+							// updateList(m_pStrPtnRoutes);
+							// pushData("sltstopList", document["value"].GetString());
 						}
 					}
 				}
-			}
+            }
+			// else
+			// {
+			// 	if (document.HasMember("name") && document.HasMember("value"))
+			// 	{
+			// 		char chString[32];
+	
+			// 		strcpy(chString, document["name"].GetString());
+            //         printf("WebSockDestination::handleData(name:%s)\n", chString);
+
+			// 		if (!strcmp("selectedstopList",chString))
+			// 		{
+			// 			int nValue = atoi(document["value"].GetString());
+                        
+			// 			if (m_tRoutes(nValue, (*m_pStrPtnRoutes)))
+			// 			{
+			// 				m_nSelectedRouteList = nValue;
+			// 				updateList(m_pStrPtnRoutes);
+			// 				pushData("sltstopList", document["value"].GetString());
+			// 			}
+                        
+			// 		}
+			// 		else if (!strcmp("selectedDirection", chString))
+			// 		{
+			// 			int nValue = atoi(document["value"].GetString());
+			// 			if (m_tDirection(nValue, (*m_pStrPtnHeader)))
+			// 			{
+			// 				m_nSelectedLineType = nValue;
+			// 				updateList(m_pStrPtnHeader);
+			// 				setStopPtnDirection(nValue);
+			// 			}
+			// 		}
+			// 		else if (!strcmp("confirmedstopList", chString))
+			// 		{
+			// 			//int nValue = atoi(document["value"].GetString());
+			// 			if (m_nSelectedRouteList)
+			// 			{
+			// 				m_tConfirmStopPtn(m_nSelectedRouteList);
+
+			// 				if (m_tSimulation(m_nSelectedRouteList, (*m_pStrPtnRoutesSim)))
+			// 				{
+
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
 			/*StringBuffer s;
 			PrettyWriter<StringBuffer> writer(s);
 			writeChanges(writer);

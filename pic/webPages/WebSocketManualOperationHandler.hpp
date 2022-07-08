@@ -43,8 +43,9 @@ public:
 
 		void setStopPtnRouteString(std::string *pString)
 		{
-			m_pStrPtnRoutes = pString;
+            m_pStrPtnRoutes = pString;
 		}
+		std::function<bool(int, std::string&)> m_tSelRoutes;
 		std::function<bool(int, std::string&)> m_tRoutes;
 		std::function<bool(int, std::string&)> m_tEvent;
 		std::function<bool(int)> m_tConfirmEventList;
@@ -52,6 +53,7 @@ public:
 	private:
 		std::string *m_pStrPtnEvent;
 		std::string *m_pStrPtnRoutes;
+        std::string *m_pStrPtnRoutesSel;
 
 		virtual bool handleConnection(CivetServer *server, const struct mg_connection *conn)
 		{
