@@ -287,11 +287,119 @@ bool COperManage::SetStopPattern(SHARED_PTRC(CSQLData) &pData)
 	return SetStopPatternByIndex(pTN->nStopPatternIndex);
 }
 
+// 220706 KEJ 노선선택이벤트
+bool COperManage::SelectStopPatternByIndex(int nIndex)
+{
+	bool bRet = false;
+	// int nDepartureStationCode = 0;
+	CTableManage *pTM = CTableManage::GetInstance();
+    int nDeparture = 0;
+    int nArrive = 0;
+
+    printf("COperManage::SelectStopPatternByIndex(%d)\n", nIndex);
+
+	std::vector<SHARED_PTRC(CSQLData)>::iterator spit = find_if(pTM->m_vStopPtnHeader.begin(), pTM->m_vStopPtnHeader.end(), findSQLData(nIndex));
+	if (spit != pTM->m_vStopPtnHeader.end())
+	{
+		bRet = true;
+        StopPtnHeader *pSPH = (StopPtnHeader*)GET_PTFROMIT(spit);
+        // 종착역
+		std::vector<SHARED_PTRC(CSQLData)>::iterator snit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPH->nArrivalStnIndex));
+		if (snit != pTM->m_vStationInformation.end())
+		{
+			StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
+			nArrive = pSI->nStationCode;
+		}
+		else
+		{
+			nArrive = 0;
+		}
+
+        // 출발역
+		snit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPH->nDepartStnIndex));
+		if (snit != pTM->m_vStationInformation.end())
+		{
+			StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
+			nDeparture = pSI->nStationCode;            
+		}
+		else
+		{
+            nDeparture = 0;
+		}
+
+        printf("departure:%d - arrive:%d\n", nDeparture, nArrive);
+
+		CloneStopPtnRoutes(*spit, nDeparture, nArrive);
+		
+
+		// m_nStopPtnIdx = nIndex;
+		// m_nLineMapIdx = pSPH->nRelatedLineMapIndex;
+
+        // 종착역
+		// std::vector<SHARED_PTRC(CSQLData)>::iterator snit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPH->nArrivalStnIndex));
+		// if (snit != pTM->m_vStationInformation.end())
+		// {
+		// 	StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
+        //     std::string str = UnicodeToUTF8(pSI->szStationName[0]);
+		// 	m_nDstStnCode = pSI->nStationCode;
+        //     strcpy(m_szDstStnUTF8, str.c_str());
+		// }
+		// else
+		// {
+		// 	m_nDstStnCode = 0;
+        //     memset(m_szDstStnUTF8, 0, sizeof(m_szDstStnUTF8));
+		// }
+
+        // // 출발역
+		// snit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPH->nDepartStnIndex));
+		// if (snit != pTM->m_vStationInformation.end())
+		// {
+		// 	StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
+        //     std::string str = UnicodeToUTF8(pSI->szStationName[0]);
+		// 	nDepartureStationCode = pSI->nStationCode;
+        //     strcpy(m_szDepStnUTF8, str.c_str());
+            
+		// }
+		// else
+		// {
+        //     m_nDepStnCode = 0;
+        //     memset(m_szDepStnUTF8, 0, sizeof(m_szDepStnUTF8));
+		// 	/*if(GET_PTFROMIT(spit)->m_vChildItem[0].vSQLData.size())
+		// 	{
+		// 		StopPtnRoutes *pRoutes=(StopPtnRoutes*)GET_PTFROMIT(GET_PTFROMIT(spit)->m_vChildItem[0].vSQLData.begin());
+		// 		nDepartureStationCode=pRoutes->nDepStnCode;
+		// 	}*/
+		// }
+		// while (!m_vSkippedStation[OM_NORMAL].empty())
+		// 	m_vSkippedStation[OM_NORMAL].clear();
+		// while (!m_vSkippedStation[OM_SIMULATION].empty())
+		// 	m_vSkippedStation[OM_SIMULATION].clear();
+		// while (!m_vSkippedStation[OM_CORRECTION].empty())
+		// 	m_vSkippedStation[OM_CORRECTION].clear();
+
+		// GoToStation(nDepartureStationCode, true, false, OM_CORRECTION);
+		// GoToStation(nDepartureStationCode, true, false, OM_SIMULATION);
+		// GoToStation(nDepartureStationCode, true, false, OM_NORMAL);
+
+		// for (int iMode = 0; iMode < OM_NULL; iMode++)
+		// {
+		// 	SetOperationMode((OPERATION_MODE)iMode);
+		// }
+		// SetOperationMode(OM_NORMAL);
+
+        // // 출발역 
+        // m_nDepStnCode = nDepartureStationCode;
+        // printf("nDepartureStationCode:%d, m_nDstStnCode:%d\n", nDepartureStationCode, m_nDstStnCode);
+	}
+
+
+	return bRet;
+}
 
 bool COperManage::SetStopPatternByIndex(int nIndex)
 {
 	bool bRet = false;
-	int nDepartureStationCode = 0;
+	// int nDepartureStationCode = 0;
 	CTableManage *pTM = CTableManage::GetInstance();
 
     printf("COperManage::SetStopPatternByIndex(%d)\n", nIndex);
@@ -300,7 +408,7 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 	if (spit != pTM->m_vStopPtnHeader.end())
 	{
 		bRet = true;
-		CloneStopPtnRoutes(*spit);
+		
 		StopPtnHeader *pSPH = (StopPtnHeader*)GET_PTFROMIT(spit);
 
 		m_nStopPtnIdx = nIndex;
@@ -327,7 +435,7 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 		{
 			StationInformation *pSI = (StationInformation*)GET_PTFROMIT(snit);
             std::string str = UnicodeToUTF8(pSI->szStationName[0]);
-			nDepartureStationCode = pSI->nStationCode;
+			m_nDepStnCode = pSI->nStationCode;
             strcpy(m_szDepStnUTF8, str.c_str());
             
 		}
@@ -341,6 +449,9 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 				nDepartureStationCode=pRoutes->nDepStnCode;
 			}*/
 		}
+
+        CloneStopPtnRoutes(*spit, m_nDepStnCode, m_nDstStnCode);
+
 		while (!m_vSkippedStation[OM_NORMAL].empty())
 			m_vSkippedStation[OM_NORMAL].clear();
 		while (!m_vSkippedStation[OM_SIMULATION].empty())
@@ -348,9 +459,9 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 		while (!m_vSkippedStation[OM_CORRECTION].empty())
 			m_vSkippedStation[OM_CORRECTION].clear();
 
-		GoToStation(nDepartureStationCode, true, false, OM_CORRECTION);
-		GoToStation(nDepartureStationCode, true, false, OM_SIMULATION);
-		GoToStation(nDepartureStationCode, true, false, OM_NORMAL);
+		GoToStation(m_nDepStnCode, true, false, OM_CORRECTION);
+		GoToStation(m_nDepStnCode, true, false, OM_SIMULATION);
+		GoToStation(m_nDepStnCode, true, false, OM_NORMAL);
 
 		for (int iMode = 0; iMode < OM_NULL; iMode++)
 		{
@@ -359,8 +470,8 @@ bool COperManage::SetStopPatternByIndex(int nIndex)
 		SetOperationMode(OM_NORMAL);
 
         // 출발역 
-        m_nDepStnCode = nDepartureStationCode;
-        printf("nDepartureStationCode:%d, m_nDstStnCode:%d\n", nDepartureStationCode, m_nDstStnCode);
+        // m_nDepStnCode = nDepartureStationCode;
+        printf("nDepartureStationCode:%d, m_nDstStnCode:%d\n", m_nDepStnCode, m_nDstStnCode);
 	}
 
     
@@ -484,53 +595,85 @@ OPERATION_MODE COperManage::GetOperationMode()
 	return m_eOperMode;
 }
 
-void COperManage::CloneStopPtnRoutes(SHARED_PTRC(CSQLData) &pData)
+// 220708 KEJ 출발역에서 종착역까지만 운행노선 불러옴
+void COperManage::CloneStopPtnRoutes(SHARED_PTRC(CSQLData) &pData, int nDeparture, int nArrive)
 {    
     std::vector<SHARED_PTRC(CSQLData)>::iterator sit,tit,fit;
 	CTableManage *pTM = CTableManage::GetInstance();
 	StopPtnHeader *pR=(StopPtnHeader*)pData.get();
+    bool nSaveFlag = false;
+
     for(int iMode=OM_NORMAL;iMode<OM_NULL;iMode++)
     {
 		int nPrevIndex = 0;
 		int nOrder = 1;
 		int nRealOrder = 1;
+        int order = 0;
+
+       
 		m_vStationInformation[iMode].clear();
 		m_vStationInformationSkipped[iMode].clear();
 		m_vStopRoutes[iMode].clear();
         for(sit=GET_PTFROMSP(pData)->m_vChildItem[0].vSQLData.begin();sit!=GET_PTFROMSP(pData)->m_vChildItem[0].vSQLData.end();sit++)
         {
             StopPtnRoutes *pSPR=(StopPtnRoutes *)GET_PTFROMIT(sit)->Clone();
+
+
 			fit = find_if(m_vStopRoutes[iMode].begin(), m_vStopRoutes[iMode].end(), findRedundentStopPtnRoutesByStationCode(pSPR->nDepStnCode,pSPR->nArrStnCode));
 			if (fit == m_vStopRoutes[iMode].end())
 			{
-				tit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPR->nDepStnIndex));
-				if (tit != pTM->m_vStationInformation.end())
-				{
-					if (nPrevIndex != GET_PTFROMIT(tit)->GetIndex())
-					{
-						StationInformation *pSI = (StationInformation*)GET_PTFROMIT(tit)->Clone();
-						pSI->nOrder = nOrder;
-						m_vStationInformation[iMode].push_back(SHARED_PTRC(CSQLData)(pSI));
-						nPrevIndex = GET_PTFROMIT(tit)->GetIndex();
-						nOrder++;
-					}
-				}
 
-				tit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPR->nArrStnIndex));
-				if (tit != pTM->m_vStationInformation.end())
-				{
-					if (nPrevIndex != GET_PTFROMIT(tit)->GetIndex())
-					{
-						StationInformation *pSI = (StationInformation*)GET_PTFROMIT(tit)->Clone();
-						pSI->nOrder = nOrder;
-						m_vStationInformation[iMode].push_back(SHARED_PTRC(CSQLData)(pSI));
-						nPrevIndex = GET_PTFROMIT(tit)->GetIndex();
-						nOrder++;
-					}
-				}
-				pSPR->nRealOrder = nRealOrder;
-				m_vStopRoutes[iMode].push_back(SHARED_PTRC(CSQLData)(pSPR));
-				nRealOrder++;
+                printf("[%d]pSPR->nDepStnCode:%d, pSPR->nArrStnCode:%d\n", order, pSPR->nDepStnCode, pSPR->nArrStnCode);
+
+                // 출발역~종착역 까지만 리스트 뽑아옴
+                if(pSPR->nDepStnCode == nDeparture)
+                {
+                    nSaveFlag = true;
+                }
+                
+                
+				// tit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPR->nDepStnIndex));
+				// if (tit != pTM->m_vStationInformation.end())
+				// {
+				// 	if (nPrevIndex != GET_PTFROMIT(tit)->GetIndex())
+				// 	{
+                        
+				// 		StationInformation *pSI = (StationInformation*)GET_PTFROMIT(tit)->Clone();
+				// 		pSI->nOrder = nOrder;
+				// 		m_vStationInformation[iMode].push_back(SHARED_PTRC(CSQLData)(pSI));
+				// 		nPrevIndex = GET_PTFROMIT(tit)->GetIndex();
+				// 		nOrder++;
+                //         // printf("pSPR->nDepStnIndex:%d - %d\n", nOrder, pSPR->nDepStnIndex);
+				// 	}
+				// }
+
+                
+				// tit = find_if(pTM->m_vStationInformation.begin(), pTM->m_vStationInformation.end(), findSQLData(pSPR->nArrStnIndex));
+				// if (tit != pTM->m_vStationInformation.end())
+				// {
+				// 	if (nPrevIndex != GET_PTFROMIT(tit)->GetIndex())
+				// 	{
+                //         // printf("pSPR->nArrStnIndex:%d\n", pSPR->nArrStnIndex);
+				// 		StationInformation *pSI = (StationInformation*)GET_PTFROMIT(tit)->Clone();
+				// 		pSI->nOrder = nOrder;
+				// 		m_vStationInformation[iMode].push_back(SHARED_PTRC(CSQLData)(pSI));
+				// 		nPrevIndex = GET_PTFROMIT(tit)->GetIndex();
+				// 		nOrder++;
+				// 	}
+				// }
+                if(nSaveFlag == true)
+                {
+                    pSPR->nRealOrder = nRealOrder;
+                    m_vStopRoutes[iMode].push_back(SHARED_PTRC(CSQLData)(pSPR)); // 220707 KEJ 이부분이 각 노선의 운행역 저장하는곳
+                    nRealOrder++;
+                }
+
+                if(pSPR->nArrStnCode == nArrive)
+                {
+                    nSaveFlag = false;
+                }
+				
+                order ++;
 			}
 			else
 			{
@@ -539,6 +682,7 @@ void COperManage::CloneStopPtnRoutes(SHARED_PTRC(CSQLData) &pData)
 				pOrigSPR->pAltRoutes = SHARED_PTRC(CSQLData)(pSPR);
 			}
         }
+
         m_vEvents[iMode].clear();
 		m_vAltEvents[iMode].clear();
         for(sit=m_vStopRoutes[iMode].begin();sit!=m_vStopRoutes[iMode].end();sit++)
@@ -554,6 +698,7 @@ void COperManage::CloneStopPtnRoutes(SHARED_PTRC(CSQLData) &pData)
 				m_vAltEvents[iMode].insert(m_vAltEvents[iMode].end(), (*sit)->m_vChildItem[0].vSQLData.begin(), (*sit)->m_vChildItem[0].vSQLData.end());
         }
 		
+
         std::sort(m_vEvents[iMode].begin(),m_vEvents[iMode].end(),EventRouteDistanceCompare());
 
 		std::sort(m_vAltEvents[iMode].begin(), m_vAltEvents[iMode].end(), EventRouteDistanceCompare());
@@ -565,6 +710,9 @@ bool COperManage::GoToStationBySelectedEvent(int nIndex, bool bCurMode, OPERATIO
 	bool bStn = false, bRet = false;
 	std::vector<SHARED_PTRC(CSQLData)>::iterator sit,zit;
 	OPERATION_MODE eTmpMode = bCurMode ? m_eOperMode : eOperMode;
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
+
 	sit=find_if(m_vEvents[eTmpMode].begin(), m_vEvents[eTmpMode].end(), findSQLData(nIndex));
 	if (sit != m_vEvents[eTmpMode].end())
 	{
@@ -622,6 +770,8 @@ bool COperManage::SetStationByDistanceIndex(int nStationIndex, bool bDepArr, boo
 	std::vector<SHARED_PTRC(CSQLData)>::iterator snit;
 	OPERATION_MODE eTmpMode = bCurMode ? m_eOperMode : eOperMode;
 	std::vector<SHARED_PTRC(CSQLData)> *pRoutes = &m_vStopRoutes[eTmpMode];
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	snit = find_if(pRoutes->begin(), pRoutes->end(), findSQLData(nStationIndex));
 	if (snit != pRoutes->end())
 	{
@@ -944,6 +1094,8 @@ bool COperManage::SetNextStation(int nNexStationCode, bool bCurMode, OPERATION_M
 	std::vector<SHARED_PTRC(CSQLData)>::iterator depit, diit, arrit;
 	int nDepOrder = 0, nArrOrder = 0;
 	int nCurStationCode = 0;
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	arrit = find_if(pRoutes->begin(), pRoutes->end(), findStopPtnRoutesByCode(nNexStationCode, false));
 	if (arrit != pRoutes->end())
 	{
@@ -965,6 +1117,8 @@ bool COperManage::SetStations(int nCurStationCode,int nNexStationCode,bool bCurM
 	int nDepOrder=0,nArrOrder=0;
 	bool bDep=false,bArr=false;
 	std::vector<SHARED_PTRC(CSQLData)>::iterator depit,diit,arrit;
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	depit=find_if(pRoutes->begin(),pRoutes->end(),findStopPtnRoutesByCode(nCurStationCode,true));
 	if(depit!=pRoutes->end())
 	{
@@ -1017,11 +1171,13 @@ bool COperManage::SetStations(int nCurStationCode,int nNexStationCode,bool bCurM
 
 bool COperManage::GoToNextStation(bool bCurMode,OPERATION_MODE eOperMode)
 {
-	printf("%s\n", __FUNCTION__);
+	printf("COperManage::%s\n", __FUNCTION__);
 	bool bRet=false;
 	int nDepStnCode=0;
 	OPERATION_MODE eTmpMode=bCurMode?m_eOperMode:eOperMode;
 	std::vector<SHARED_PTRC(CSQLData)> *pRoutes=&m_vStopRoutes[eTmpMode];
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	if(m_uNexStn[eTmpMode]==0)
 	{
 		StopPtnRoutes *pSR=(StopPtnRoutes*)GET_PTFROMIT(pRoutes->begin());
@@ -1044,6 +1200,8 @@ bool COperManage::GoToPrevStation(bool bCurMode,OPERATION_MODE eOperMode)
 	bool bDepArr=false;
 	OPERATION_MODE eTmpMode=bCurMode?m_eOperMode:eOperMode;
 	std::vector<SHARED_PTRC(CSQLData)> *pRoutes=&m_vStopRoutes[eTmpMode];
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	if(m_uCurStn[eTmpMode]==0)
 	{
 		StopPtnRoutes *pSR=(StopPtnRoutes*)GET_PTFROMIT(pRoutes->begin());
@@ -1091,6 +1249,8 @@ bool COperManage::SetRouteDistance(int nDistance,bool bCurMode,OPERATION_MODE eO
     int *pLimitDist=&m_nLimitDistance[eTmpMode];
     int *pBaseDist=&m_nBaseDistance[eTmpMode];
 	int *pTotalProceededDist=&m_nTotalProceededDistance[eTmpMode];
+
+    printf("%s %d\n",__FUNCTION__,__LINE__);
 	for(xit=pRoutes->begin();xit!=pRoutes->end();xit++)
 	{
 		StopPtnRoutes *pSPR=(StopPtnRoutes*)GET_PTFROMIT(xit);
