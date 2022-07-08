@@ -33,6 +33,7 @@ public:
 	std::function<void(const char*)> pushManualOper;
 	std::function<void(const char*)> pushDestSelect;
 	std::function<void(const char*)> pushTrainNumber;
+    std::function<void(const char*)> pushSimulation;
     std::function<void(const char*)> chgTrainNum;
     std::function<void(const char*)> chgOperMode;
     
@@ -61,6 +62,7 @@ private:
 
 	std::atomic<int32_t> m_nSimDistance;
 
+    std::string *m_pStrPtnRoutesSel;
 	std::string *m_pStrPtnRoutes;
 	bool m_bIntSIM;
 

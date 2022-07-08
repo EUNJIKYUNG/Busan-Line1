@@ -165,6 +165,7 @@ void COperation::RunLoop()
 			pthread_mutex_unlock(&m_tOperation);
 		}
 	}
+
 	COperManage *pOM = COperManage::GetInstance();
 
 	if (pushLineType)
@@ -206,12 +207,16 @@ void COperation::SetOperationMode(int32_t nOperationMode)
     printf("COperation::SetOperationMode(%d)\n", nOperationMode);
 
 	m_nOperationMode = nOperationMode;
+
+    // 수동/자동모드에 따라 '열차번호설정', '노선설정', '수동운행', '모의주행' 버튼 활성화/비활성화
 	if(pushManualOper)
 		pushManualOper(m_nOperationMode?"false":"true");
 	if(pushDestSelect)
 		pushDestSelect(m_nOperationMode?"false":"true");
 	if(pushTrainNumber)
 		pushTrainNumber(m_nOperationMode?"false":"true");
+    if(pushSimulation)
+        pushSimulation(m_nOperationMode?"false":"true");
 	if(updateMenu)
 		updateMenu();
 
@@ -250,12 +255,12 @@ void COperation::SetIDD1Information(OPERATION_MODE eMode)
 	// m_tPISC2IDD.uTotalDistance = pOM->GetLimitDistance(false, eMode);
 	// m_tPISC2IDD.uStopPtnIndex = pOM->GetStopPatternIndex();             // 노선번호
 
-	printf("Dep:%u Cur:%u Nex:%u Des:%u Dist:%u StpPtn:%u\n" , m_tPISC2IDD.OPERINFO.uSTARTCODE
-                                                , m_tPISC2IDD.OPERINFO.uCURCODE
-                                                , m_tPISC2IDD.OPERINFO.uNEXCODE
-                                                , m_tPISC2IDD.OPERINFO.uDSTCODE
-                                                , (m_tPISC2IDD.uDIST[0]<<8)|m_tPISC2IDD.uDIST[1]
-                                                , pOM->GetStopPatternIndex());
+	// printf("Dep:%u Cur:%u Nex:%u Des:%u Dist:%u StpPtn:%u\n" , m_tPISC2IDD.OPERINFO.uSTARTCODE
+    //                                             , m_tPISC2IDD.OPERINFO.uCURCODE
+    //                                             , m_tPISC2IDD.OPERINFO.uNEXCODE
+    //                                             , m_tPISC2IDD.OPERINFO.uDSTCODE
+    //                                             , (m_tPISC2IDD.uDIST[0]<<8)|m_tPISC2IDD.uDIST[1]
+    //                                             , pOM->GetStopPatternIndex());
 	if (m_uPIDCount)
 		m_tPISC2IDD.uEventIndex = m_uPIDIndex;
 	else
@@ -343,4 +348,5 @@ void COperation::SetPIITextIndex(int nIndex)
 void COperation::setStopPtnRouteString(std::string *pString)
 {
 	m_pStrPtnRoutes = pString;
+    // m_pStrPtnRoutesSel = pString;
 }
